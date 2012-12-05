@@ -19,6 +19,7 @@ Bundle 'vim-scripts/Tabbi'
 Bundle 'vim-scripts/Tagbar'
 Bundle 'vim-scripts/vim-coffee-script'
 Bundle 'vim-scripts/ZenCoding.vim'
+Bundle 'groenewege/vim-less'
 Bundle "Markdown"
 Bundle "repeat.vim"
 Bundle "surround.vim"
@@ -27,6 +28,18 @@ Bundle "file-line"
 Bundle "Align"
 Bundle 'toggle_mouse'
 Bundle "scrooloose/syntastic"
+Bundle "puppetlabs/puppet-syntax-vim"
+"""""""""""""""""
+" Vim indent Guides
+"""""""""""""""""
+Bundle "nathanaelkane/vim-indent-guides"
+let g:indent_guides_auto_colors = 0 
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
+autocmd VimEnter,ColorScheme * :hi IndentGuidesEven ctermbg=darkgrey
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3 
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4 
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
 
 """""""""""""""""
 "General Setting"
@@ -61,8 +74,8 @@ command W w !sudo tee % > /dev/null
 "
 set clipboard+=unnamed
 
-autocmd BufWritePre * silent! %s/\s\+$//
-autocmd BufWritePre * silent! %s/\(\s*\n\)\+\%$//
+"autocmd BufWritePre * silent! %s/\s\+$//
+"autocmd BufWritePre * silent! %s/\(\s*\n\)\+\%$//
 
 set expandtab
 set tabstop=4
@@ -94,7 +107,6 @@ map <A-h> <C-W>h<c-w><Bar>
 map <A-l> <C-W>l<c-w><Bar>
 set winaltkeys=no
 "set winheight=999
-map <C-s> :w<CR>
 nnoremap j gj
 vmap j gj
 nnoremap k gk
@@ -233,8 +245,8 @@ let g:neocomplcache_snippets_dir=VIMFILES.'/snippets/'
 Bundle 'vim-scripts/snipMate'
 
 autocmd FileType python set ft=python.django
-"autocmd FileType html set ft=htmldjango.html
-"autocmd FileType xhtml set ft=htmldjango.html
+autocmd FileType html set ft=htmldjango.html
+autocmd FileType xhtml set ft=htmldjango.html
 
 """"""""""""""""""""""""""""""
 " cscope
@@ -302,8 +314,9 @@ snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
 """"""""""""""""""""""""""""""
 " CommandT plugin
 """"""""""""""""""""""""""""""
-let g:CommandTMaxDepth=3
-let g:CommandTMatchWindowAtTop=1
+let g:CommandTMaxDepth=4
+let g:CommandTMatchWindowAtTop=0
+let g:CommandTAcceptSelectionSplitMap='<C-m>'
 
 """""""""""""""""""""""
 " autoclose plugin
