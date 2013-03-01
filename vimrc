@@ -21,6 +21,7 @@ Bundle 'vim-scripts/vim-coffee-script'
 Bundle 'vim-scripts/ZenCoding.vim'
 Bundle 'groenewege/vim-less'
 Bundle "Markdown"
+Bundle "vim-scripts/tiddlywiki"
 Bundle "repeat.vim"
 Bundle "surround.vim"
 Bundle "SuperTab"
@@ -65,6 +66,9 @@ endif
 
 set hlsearch
 set incsearch
+
+set formatoptions=tcqmM	" line break can follow an Asian Char and DO NOT insert space before
+						" or after an Asian Char
 
 set backspace=indent,eol,start
 set wildmenu
@@ -114,6 +118,12 @@ vmap k gk
 map ; :
 au FileType javascript map <C-f> :call g:Jsbeautify()<CR>
 let mapleader=","
+""""""""""""""""""""""
+" gvim fullscreen on start
+""""""""""""""""""""""
+if has("gui_running")
+    au GUIEnter * set fullscreen
+endif
 
 """"""""""""""""""""""
 " vim undo (for vim 7.3)
@@ -153,8 +163,8 @@ endif
 """""""""""""""""
 " Auto Commands
 """"""""""""""""
-autocmd! BufRead,BufNewFile *.tracwiki set filetype=tracwiki
-autocmd! BufRead,BufNewFile *.tiddlywiki set filetype=tiddlywiki
+autocmd BufRead,BufNewFile *.tracwiki set filetype=tracwiki
+autocmd BufRead,BufNewFile *.tiddlywiki set filetype=tiddlywiki
 autocmd BufNewFile,BufRead .tmux.conf*,tmux.conf* set filetype=tmux
 autocmd BufRead,BufNewFile *.coffee set filetype=coffee
 autocmd BufRead,BufNewFile *.g set filetype=antlr3
@@ -219,7 +229,7 @@ let NERDTreeSortOrder = ['\/$', '*', '\.swp$', '\.bak$', '\~$'] " Tell the NERD 
 let NERDTreeStatusline = "%{exists('b:NERDTreeRoot')?b:NERDTreeRoot.path.str():''}" " Set a statusline for NERD tree windows.
 let NERDTreeWinPos = "left"		" Tells the script where to put the NERD tree window
 let NERDTreeWinSize = 21		" Sets the window size when the NERD tree is opened.
-nmap <F3> :NERDTreeToggle<CR>
+nmap <F3> :NERDTreeToggle<CR> :NERDTreeMirror<CR>
 
 """"""""""""""""""""""""""""""
 " NeoComplcache plugin
