@@ -4,6 +4,7 @@ filetype off                   " required!
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+Bundle 'vim-dokuwiki'
 Bundle "jQuery"
 Bundle 'rstacruz/sparkup'
 Bundle 'vim-scripts/calendar.vim'
@@ -261,6 +262,7 @@ autocmd FileType xhtml set ft=htmldjango.html
 """"""""""""""""""""""""""""""
 " cscope
 """"""""""""""""""""""""""""""
+cs add cscope.out
 set cscopequickfix=s-,c-,d-,i-,t-,e-
 nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
