@@ -11,7 +11,6 @@ Bundle 'vim-scripts/calendar.vim'
 Bundle 'vim-scripts/Command-T'
 Bundle 'vim-scripts/DrawIt'
 Bundle 'vim-scripts/MatchTag'
-Bundle 'vim-scripts/neocomplcache'
 Bundle 'Shougo/neosnippet.git'
 Bundle 'vim-scripts/nginx.vim'
 Bundle 'vim-scripts/speeddating.vim'
@@ -31,6 +30,11 @@ Bundle "Align"
 Bundle 'toggle_mouse'
 Bundle "scrooloose/syntastic"
 Bundle "puppetlabs/puppet-syntax-vim"
+Bundle "davidhalter/jedi-vim"
+"""""""""""""""""
+" jedi-vim
+"""""""""""""""""
+let g:jedi#popup_select_first = 0
 """""""""""""""""
 " Vim indent Guides
 """""""""""""""""
