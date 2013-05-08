@@ -8,7 +8,6 @@ Bundle 'vim-dokuwiki'
 Bundle "jQuery"
 Bundle 'rstacruz/sparkup'
 Bundle 'vim-scripts/calendar.vim'
-Bundle 'vim-scripts/Command-T'
 Bundle 'vim-scripts/DrawIt'
 Bundle 'vim-scripts/MatchTag'
 Bundle 'Shougo/neosnippet.git'
@@ -31,6 +30,7 @@ Bundle 'toggle_mouse'
 Bundle "scrooloose/syntastic"
 Bundle "puppetlabs/puppet-syntax-vim"
 Bundle "davidhalter/jedi-vim"
+
 """""""""""""""""
 " jedi-vim
 """""""""""""""""
@@ -114,6 +114,7 @@ map <A-j> <C-W>j<C-w>_
 map <A-k> <C-W>k<C-w>_
 map <A-h> <C-W>h<c-w><Bar>
 map <A-l> <C-W>l<c-w><Bar>
+map ct :tabclose<CR>
 set winaltkeys=no
 "set winheight=999
 nnoremap j gj
@@ -327,13 +328,6 @@ let g:snips_author='Jeffrey Zhang <zhang.lei.fly@gmail.com>'
 ino <c-j> <c-r>=TriggerSnippet()<cr>
 snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
 
-""""""""""""""""""""""""""""""
-" CommandT plugin
-""""""""""""""""""""""""""""""
-let g:CommandTMaxDepth=4
-let g:CommandTMatchWindowAtTop=0
-let g:CommandTAcceptSelectionSplitMap='<C-m>'
-
 """""""""""""""""""""""
 " autoclose plugin
 """""""""""""""""""""""
@@ -367,43 +361,45 @@ Bundle 'vim-scripts/L9'
 let g:fuf_modesDisable = []
 let g:fuf_mrufile_maxItem = 400
 let g:fuf_mrucmd_maxItem = 400
-nnoremap <silent> sj     :FufBuffer<CR>
-nnoremap <silent> sk     :FufFileWithCurrentBufferDir<CR>
-nnoremap <silent> sK     :FufFileWithFullCwd<CR>
-nnoremap <silent> s<C-k> :FufFile<CR>
-nnoremap <silent> sl     :FufCoverageFileChange<CR>
-nnoremap <silent> sL     :FufCoverageFileChange<CR>
-nnoremap <silent> s<C-l> :FufCoverageFileRegister<CR>
-nnoremap <silent> sd     :FufDirWithCurrentBufferDir<CR>
-nnoremap <silent> sD     :FufDirWithFullCwd<CR>
-nnoremap <silent> s<C-d> :FufDir<CR>
-nnoremap <silent> sn     :FufMruFile<CR>
-nnoremap <silent> sN     :FufMruFileInCwd<CR>
-nnoremap <silent> sm     :FufMruCmd<CR>
-nnoremap <silent> su     :FufBookmarkFile<CR>
-nnoremap <silent> s<C-u> :FufBookmarkFileAdd<CR>
-vnoremap <silent> s<C-u> :FufBookmarkFileAddAsSelectedText<CR>
-nnoremap <silent> si     :FufBookmarkDir<CR>
-nnoremap <silent> s<C-i> :FufBookmarkDirAdd<CR>
-nnoremap <silent> st     :FufTag<CR>
-nnoremap <silent> sT     :FufTag!<CR>
-nnoremap <silent> s<C-]> :FufTagWithCursorWord!<CR>
-nnoremap <silent> s,     :FufBufferTag<CR>
-nnoremap <silent> s<     :FufBufferTag!<CR>
-vnoremap <silent> s,     :FufBufferTagWithSelectedText!<CR>
-vnoremap <silent> s<     :FufBufferTagWithSelectedText<CR>
-nnoremap <silent> s}     :FufBufferTagWithCursorWord!<CR>
-nnoremap <silent> s.     :FufBufferTagAll<CR>
-nnoremap <silent> s>     :FufBufferTagAll!<CR>
-vnoremap <silent> s.     :FufBufferTagAllWithSelectedText!<CR>
-vnoremap <silent> s>     :FufBufferTagAllWithSelectedText<CR>
-nnoremap <silent> s]     :FufBufferTagAllWithCursorWord!<CR>
-nnoremap <silent> sg     :FufTaggedFile<CR>
-nnoremap <silent> sG     :FufTaggedFile!<CR>
-nnoremap <silent> so     :FufJumpList<CR>
-nnoremap <silent> sp     :FufChangeList<CR>
-nnoremap <silent> sq     :FufQuickfix<CR>
-nnoremap <silent> sy     :FufLine<CR>
-nnoremap <silent> sh     :FufHelp<CR>
-nnoremap <silent> se     :FufEditDataFile<CR>
-nnoremap <silent> sr     :FufRenewCache<CR>
+map <leader>b :FufBuffer<CR>
+map <leader>f :FufFile<CR>
+map <leader>l :FufLine<CR>
+map <leader>j :FufJumpList<CR>
+map <leader>m :FufBookmarkFile<CR>
+map <leader><C-u> :FufBookmarkFileAdd<CR>
+map <leader>r :FufMruFile<CR>
+
+"nnoremap <silent> sj     :FufBuffer<CR>
+"nnoremap <silent> sk     :FufFileWithCurrentBufferDir<CR>
+"nnoremap <silent> sK     :FufFileWithFullCwd<CR>
+"nnoremap <silent> s<C-k> :FufFile<CR>
+"nnoremap <silent> sl     :FufCoverageFileChange<CR>
+"nnoremap <silent> sL     :FufCoverageFileChange<CR>
+"nnoremap <silent> s<C-l> :FufCoverageFileRegister<CR>
+"nnoremap <silent> sd     :FufDirWithCurrentBufferDir<CR>
+"nnoremap <silent> sD     :FufDirWithFullCwd<CR>
+"nnoremap <silent> s<C-d> :FufDir<CR>
+"nnoremap <silent> sN     :FufMruFileInCwd<CR>
+"nnoremap <silent> sm     :FufMruCmd<CR>
+"nnoremap <silent> st     :FufTag<CR>
+"nnoremap <silent> sT     :FufTag!<CR>
+"nnoremap <silent> s<C-]> :FufTagWithCursorWord!<CR>
+"nnoremap <silent> s,     :FufBufferTag<CR>
+"nnoremap <silent> s<     :FufBufferTag!<CR>
+"vnoremap <silent> s,     :FufBufferTagWithSelectedText!<CR>
+"vnoremap <silent> s<     :FufBufferTagWithSelectedText<CR>
+"nnoremap <silent> s}     :FufBufferTagWithCursorWord!<CR>
+"nnoremap <silent> s.     :FufBufferTagAll<CR>
+"nnoremap <silent> s>     :FufBufferTagAll!<CR>
+"vnoremap <silent> s.     :FufBufferTagAllWithSelectedText!<CR>
+"vnoremap <silent> s>     :FufBufferTagAllWithSelectedText<CR>
+"nnoremap <silent> s]     :FufBufferTagAllWithCursorWord!<CR>
+"nnoremap <silent> sg     :FufTaggedFile<CR>
+"nnoremap <silent> sG     :FufTaggedFile!<CR>
+"nnoremap <silent> so     :FufJumpList<CR>
+"nnoremap <silent> sp     :FufChangeList<CR>
+"nnoremap <silent> sq     :FufQuickfix<CR>
+"nnoremap <silent> sy     :FufLine<CR>
+"nnoremap <silent> sh     :FufHelp<CR>
+"nnoremap <silent> se     :FufEditDataFile<CR>
+"nnoremap <silent> sr     :FufRenewCache<CR>
