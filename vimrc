@@ -2,7 +2,9 @@ set nocompatible               " be iMproved
 filetype off                   " required!
 
 set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
 call vundle#rc()
+
 
 Bundle 'vim-dokuwiki'
 Bundle "jQuery"
@@ -29,12 +31,31 @@ Bundle "Align"
 Bundle 'toggle_mouse'
 Bundle "scrooloose/syntastic"
 Bundle "puppetlabs/puppet-syntax-vim"
-Bundle "davidhalter/jedi-vim"
-
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'Lokaltog/powerline'
+"""""""""""""""""
+" jade
+"""""""""""""""""
+Bundle 'jade.vim'
 """""""""""""""""
 " jedi-vim
 """""""""""""""""
-let g:jedi#popup_select_first = 0
+filetype detect
+Bundle "davidhalter/jedi-vim"
+let g:jedi#auto_initialization = 1
+let g:jedi#popup_on_dot = 0
+autocmd  FileType python let b:did_ftplugin = 1
+"let g:jedi#popup_select_first = 0
+
+"""""""""""""""""
+" neocomplcache
+"""""""""""""""""
+Bundle 'neocomplcache'
+let g:neocomplcache_enable_at_startup = 1
+if !exists('g:neocomplcache_omni_functions')
+    let g:neocomplcache_omni_functions = {}
+endif
+let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
 """""""""""""""""
 " Vim indent Guides
 """""""""""""""""
@@ -53,6 +74,9 @@ let g:indent_guides_guide_size = 1
 filetype plugin indent on
 set number
 if $TERM =~ '^xterm'
+        set t_Co=256
+        colorscheme molokai
+elseif $TERM =~ '^screen-256'
         set t_Co=256
         colorscheme molokai
 elseif $TERM =~ '^screen-bce'
@@ -92,13 +116,8 @@ set shiftwidth=4
 set softtabstop=4
 set cindent
 set autoindent
-if has("win32")
-    let VIMFILES=$VIM."/vimfiles"
-    set guifont=Bitstream\ Vera\ Sans\ Mono:h10
-else
-    let VIMFILES=$HOME."/.vim"
-    set guifont=Monospace\ 12
-endif
+let VIMFILES=$HOME."/.vim"
+set guifont=Monospace\ 12
 """""""""""""""""""""""
 "   vim mapping setting
 """""""""""""""""""""""
@@ -114,7 +133,10 @@ map <A-j> <C-W>j<C-w>_
 map <A-k> <C-W>k<C-w>_
 map <A-h> <C-W>h<c-w><Bar>
 map <A-l> <C-W>l<c-w><Bar>
-map ct :tabclose<CR>
+map tc :tabclose<CR>
+map tn :tabnew<CR>
+map tt :tab split<CR>
+map <F1> <ESC>
 set winaltkeys=no
 "set winheight=999
 nnoremap j gj
@@ -352,54 +374,12 @@ let Powerline_colorscheme="skwp"
 " vim coffee plugin
 """""""""""""""""""""""
 let coffee_compiler='/usr/local/bin/coffee'
-"""""""""""""""""""""""""
-" FuzzyFinder
-"""""""""""""""""""""""""
-Bundle 'vim-scripts/FuzzyFinder'
-Bundle 'vim-scripts/L9'
-
-let g:fuf_modesDisable = []
-let g:fuf_mrufile_maxItem = 400
-let g:fuf_mrucmd_maxItem = 400
-map <leader>b :FufBuffer<CR>
-map <leader>f :FufFile<CR>
-map <leader>l :FufLine<CR>
-map <leader>j :FufJumpList<CR>
-map <leader>m :FufBookmarkFile<CR>
-map <leader><C-u> :FufBookmarkFileAdd<CR>
-map <leader>r :FufMruFile<CR>
-
-"nnoremap <silent> sj     :FufBuffer<CR>
-"nnoremap <silent> sk     :FufFileWithCurrentBufferDir<CR>
-"nnoremap <silent> sK     :FufFileWithFullCwd<CR>
-"nnoremap <silent> s<C-k> :FufFile<CR>
-"nnoremap <silent> sl     :FufCoverageFileChange<CR>
-"nnoremap <silent> sL     :FufCoverageFileChange<CR>
-"nnoremap <silent> s<C-l> :FufCoverageFileRegister<CR>
-"nnoremap <silent> sd     :FufDirWithCurrentBufferDir<CR>
-"nnoremap <silent> sD     :FufDirWithFullCwd<CR>
-"nnoremap <silent> s<C-d> :FufDir<CR>
-"nnoremap <silent> sN     :FufMruFileInCwd<CR>
-"nnoremap <silent> sm     :FufMruCmd<CR>
-"nnoremap <silent> st     :FufTag<CR>
-"nnoremap <silent> sT     :FufTag!<CR>
-"nnoremap <silent> s<C-]> :FufTagWithCursorWord!<CR>
-"nnoremap <silent> s,     :FufBufferTag<CR>
-"nnoremap <silent> s<     :FufBufferTag!<CR>
-"vnoremap <silent> s,     :FufBufferTagWithSelectedText!<CR>
-"vnoremap <silent> s<     :FufBufferTagWithSelectedText<CR>
-"nnoremap <silent> s}     :FufBufferTagWithCursorWord!<CR>
-"nnoremap <silent> s.     :FufBufferTagAll<CR>
-"nnoremap <silent> s>     :FufBufferTagAll!<CR>
-"vnoremap <silent> s.     :FufBufferTagAllWithSelectedText!<CR>
-"vnoremap <silent> s>     :FufBufferTagAllWithSelectedText<CR>
-"nnoremap <silent> s]     :FufBufferTagAllWithCursorWord!<CR>
-"nnoremap <silent> sg     :FufTaggedFile<CR>
-"nnoremap <silent> sG     :FufTaggedFile!<CR>
-"nnoremap <silent> so     :FufJumpList<CR>
-"nnoremap <silent> sp     :FufChangeList<CR>
-"nnoremap <silent> sq     :FufQuickfix<CR>
-"nnoremap <silent> sy     :FufLine<CR>
-"nnoremap <silent> sh     :FufHelp<CR>
-"nnoremap <silent> se     :FufEditDataFile<CR>
-"nnoremap <silent> sr     :FufRenewCache<CR>
+"""""""""""""""""
+" Unite
+"""""""""""""""""
+Bundle 'Shougo/unite.vim'
+map <leader>f :<C-u>Unite -start-insert file<CR>
+map <leader>r :<C-u>Unite -start-insert file_rec<CR>
+map <leader>m :<C-u>Unite file_mru<CR>
+map <leader>y :<C-u>Unite history/yank<CR>
+map <silent> <leader>b :<C-u>Unite buffer file_mru bookmark<CR>
