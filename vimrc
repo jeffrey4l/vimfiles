@@ -33,6 +33,7 @@ Bundle "scrooloose/syntastic"
 Bundle "puppetlabs/puppet-syntax-vim"
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'Lokaltog/powerline'
+Bundle 'ameade/qtpy-vim'
 """""""""""""""""
 " jade
 """""""""""""""""
@@ -40,13 +41,12 @@ Bundle 'jade.vim'
 """""""""""""""""
 " jedi-vim
 """""""""""""""""
-filetype detect
+"filetype detect
 Bundle "davidhalter/jedi-vim"
 let g:jedi#auto_initialization = 1
 let g:jedi#popup_on_dot = 0
-autocmd  FileType python let b:did_ftplugin = 1
-"let g:jedi#popup_select_first = 0
-
+"autocmd  FileType python let b:did_ftplugin = 1
+let g:jedi#popup_select_first = 0
 """""""""""""""""
 " neocomplcache
 """""""""""""""""
@@ -55,7 +55,15 @@ let g:neocomplcache_enable_at_startup = 1
 if !exists('g:neocomplcache_omni_functions')
     let g:neocomplcache_omni_functions = {}
 endif
-let g:neocomplcache_omni_functions['python'] = 'jedi#complete'
+let g:neocomplcache_omni_functions['python'] = 'jedi#completions'
+
+if !exists('g:neocomplcache_force_omni_patterns')
+  let g:neocomplcache_force_omni_patterns = {}
+endif
+let g:neocomplcache_force_omni_patterns.python = '[^. \t]\.\w*'
+imap <silent><C-l>     <Plug>(neocomplcache_snippets_expand)
+smap <silent><C-l>     <Plug>(neocomplcache_snippets_expand)
+
 """""""""""""""""
 " Vim indent Guides
 """""""""""""""""
@@ -260,29 +268,11 @@ let NERDTreeWinSize = 21		" Sets the window size when the NERD tree is opened.
 nmap <F3> :NERDTreeToggle<CR> :NERDTreeMirror<CR>
 
 """"""""""""""""""""""""""""""
-" NeoComplcache plugin
-""""""""""""""""""""""""""""""
-let g:neocomplcache_enable_at_startup = 1
-"let g:NeoComplCache_SmartCase = 1
-"let g:NeoComplCache_EnableUnderbarCompletion = 1
-"let g:NeoComplCache_MinKeywordLength = 0
-"let g:NeoComplCache_CachingPercentInStatusline = 1
-imap <silent><C-l>     <Plug>(neocomplcache_snippets_expand)
-smap <silent><C-l>     <Plug>(neocomplcache_snippets_expand)
-"inoremap <expr><C-h> pumvisible() ? "\<C-y>\<C-h>" : "\<C-h>"
-"inoremap <expr><silent><C-g>     neocomplcache#undo_completion()
-"inoremap <expr><C-s>     neocomplcache#complete_common_string()
-let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default':'',
-    \}
-    "\ 'python':'/home/jeffrey/.vim/dictionary/python_dict',
-let g:neocomplcache_snippets_dir=VIMFILES.'/snippets/'
-""""""""""""""""""""""""""""""
 " snippets plugin
 """"""""""""""""""""""""""""""
 Bundle 'vim-scripts/snipMate'
 
-autocmd FileType python set ft=python.django
+"autocmd FileType python set ft=python.django
 autocmd FileType html set ft=htmldjango.html
 autocmd FileType xhtml set ft=htmldjango.html
 
