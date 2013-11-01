@@ -5,6 +5,12 @@ set rtp+=~/.vim/bundle/vundle/
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
 call vundle#rc()
 
+"""""""""""""""""
+" Vim quickfix list launch files in new tab
+" http://stackoverflow.com/questions/6852763/vim-quickfix-list-launch-files-in-new-tab
+"""""""""""""""""
+set switchbuf+=newtab,usetab
+
 
 Bundle 'vim-dokuwiki'
 Bundle "jQuery"
@@ -34,6 +40,13 @@ Bundle "puppetlabs/puppet-syntax-vim"
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'Lokaltog/powerline'
 Bundle 'ameade/qtpy-vim'
+Bundle 'hdima/python-syntax'
+"""""""""""""""""
+" Vim Auto Save 
+"""""""""""""""""
+Bundle 'vim-auto-save'
+let g:auto_save = 1
+let g:auto_save_no_updatetime = 1
 """""""""""""""""
 " jade
 """""""""""""""""
@@ -239,7 +252,7 @@ map<F10> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 """"""""""""""""""""""""""""""
 Bundle 'vim-scripts/The-NERD-Commenter'
 let NERDShutUp=1
-map <c-i> <leader>c<space>
+map <C-y> <leader>c<space>
 
 """"""""""""""""""""""""""""""
 " NERD_tree
