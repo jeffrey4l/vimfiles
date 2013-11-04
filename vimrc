@@ -23,7 +23,6 @@ Bundle 'vim-scripts/nginx.vim'
 Bundle 'vim-scripts/speeddating.vim'
 Bundle 'vim-scripts/surround.vim'
 Bundle 'vim-scripts/Tabbi'
-Bundle 'vim-scripts/Tagbar'
 Bundle 'vim-scripts/vim-coffee-script'
 Bundle 'vim-scripts/ZenCoding.vim'
 Bundle 'groenewege/vim-less'
@@ -360,8 +359,10 @@ let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'"}
 """""""""""""""""""""""
 " Tagbar plugin
 """""""""""""""""""""""
+Bundle 'vim-scripts/Tagbar'
+autocmd VimEnter * nested :call tagbar#autoopen(1)
 map <F4> :TagbarToggle<CR>
-let g:tagbar_width=20
+let g:tagbar_width=30
 """""""""""""""""""""""
 " Ack.vim plugin
 """""""""""""""""""""""
