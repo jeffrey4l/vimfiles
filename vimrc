@@ -179,6 +179,8 @@ endif
 if v:version >= 703
     if !isdirectory($HOME.'/.vim_undo')
         " :NOTE(jeffrey4l) This is not work. But I don't know why?
+        " This trick came from 
+        " http://stackoverflow.com/questions/1549263/how-can-i-create-a-folder-if-it-doesnt-exist-from-vimrc
         "call mkdir($HOME.'/.vim/tmp/','p')
         silent !mkdir ~/.vim_undo > /dev/null 2>&1
     endif
