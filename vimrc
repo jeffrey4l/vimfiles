@@ -177,9 +177,14 @@ endif
 " vim undo (for vim 7.3)
 """"""""""""""""""""""
 if v:version >= 703
+    if !isdirectory($HOME.'/.vim_undo')
+        " :NOTE(jeffrey4l) This is not work. But I don't know why?
+        "call mkdir($HOME.'/.vim/tmp/','p')
+        silent !mkdir ~/.vim_undo > /dev/null 2>&1
+    endif
     set undofile
     set undolevels=10000
-    set undodir='/tmp/'
+    set undodir=$HOME/.vim_undo
 endif
 
 set go-=mTr
