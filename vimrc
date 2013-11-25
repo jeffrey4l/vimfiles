@@ -41,6 +41,12 @@ Bundle 'Lokaltog/powerline'
 Bundle 'ameade/qtpy-vim'
 Bundle 'hdima/python-syntax'
 """""""""""""""""
+" VOom
+"""""""""""""""""
+Bundle 'VOoM'
+let g:voom_ft_modes = {'markdown': 'markdown'}
+let g:voom_tree_placement = 'right'
+"""""""""""""""""
 " Vim Auto Save 
 """""""""""""""""
 Bundle 'vim-auto-save'
@@ -55,6 +61,7 @@ Bundle 'jade.vim'
 """""""""""""""""
 "filetype detect
 Bundle "davidhalter/jedi-vim"
+let g:jedi#show_call_signatures = 0
 let g:jedi#auto_initialization = 1
 let g:jedi#popup_on_dot = 0
 "autocmd  FileType python let b:did_ftplugin = 1
