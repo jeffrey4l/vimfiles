@@ -39,7 +39,6 @@ Bundle "puppetlabs/puppet-syntax-vim"
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'Lokaltog/powerline'
 Bundle 'ameade/qtpy-vim'
-Bundle 'hdima/python-syntax'
 """""""""""""""""
 " VOom
 """""""""""""""""
