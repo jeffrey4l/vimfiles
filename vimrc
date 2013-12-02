@@ -245,6 +245,12 @@ augroup python
     autocmd BufNewFile *.py call AddTitlePython()
 augroup end
 """""""""""""""""""""""
+" Html config
+"""""""""""""""""""""""
+autocmd BufRead,BufNewFile *.html set tabstop=2
+autocmd BufRead,BufNewFile *.html set shiftwidth=2
+autocmd BufRead,BufNewFile *.html set softtabstop=2
+"""""""""""""""""""""""
 "   YankRing setting
 """""""""""""""""""""""
 Bundle "YankRing.vim"
@@ -400,3 +406,9 @@ map <leader>r :<C-u>Unite -start-insert file_rec<CR>
 map <leader>m :<C-u>Unite file_mru<CR>
 map <leader>y :<C-u>Unite history/yank<CR>
 map <silent> <leader>b :<C-u>Unite buffer file_mru bookmark<CR>
+"""""""""""""""""""
+" Dockerfile Syntax
+"""""""""""""""""""
+"Bundle 'honza/dockerfile.vim'
+Bundle "ekalinin/Dockerfile.vim"
+
