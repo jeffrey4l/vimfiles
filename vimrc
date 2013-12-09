@@ -11,7 +11,6 @@ call vundle#rc()
 """""""""""""""""
 set switchbuf+=newtab,usetab
 
-
 Bundle 'vim-dokuwiki'
 Bundle "jQuery"
 Bundle 'rstacruz/sparkup'
@@ -172,6 +171,13 @@ vmap k gk
 map ; :
 au FileType javascript map <C-f> :call g:Jsbeautify()<CR>
 let mapleader=","
+""""""""""""""""""""""""
+" FileType configuration
+""""""""""""""""""""""""
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype htmldjango setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
 """"""""""""""""""""""
 " gvim fullscreen on start
 """"""""""""""""""""""
@@ -245,12 +251,6 @@ augroup python
     autocmd BufNewFile *.py call AddTitlePython()
 augroup end
 """""""""""""""""""""""
-" Html config
-"""""""""""""""""""""""
-autocmd BufRead,BufNewFile *.html set tabstop=2
-autocmd BufRead,BufNewFile *.html set shiftwidth=2
-autocmd BufRead,BufNewFile *.html set softtabstop=2
-"""""""""""""""""""""""
 "   YankRing setting
 """""""""""""""""""""""
 Bundle "YankRing.vim"
@@ -270,7 +270,7 @@ map<F10> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 """"""""""""""""""""""""""""""
 Bundle 'vim-scripts/The-NERD-Commenter'
 let NERDShutUp=1
-map <C-y> <leader>c<space>
+map <C-m> <leader>c<space>
 
 """"""""""""""""""""""""""""""
 " NERD_tree
