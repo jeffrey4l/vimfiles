@@ -39,6 +39,21 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'Lokaltog/powerline'
 Bundle 'ameade/qtpy-vim'
 Bundle 'juvenn/mustache.vim'
+"""""""""""""""""""""""""""
+" Ensure_cache_folder
+"""""""""""""""""""""""""""
+let g:cache_folder=$HOME.'/.vim.cache'
+function! Ensure_cache_folder(name)
+    " NOTE(jeffrey4l) This is not work. But I don't know why?
+    " This trick came from 
+    " http://stackoverflow.com/questions/1549263/how-can-i-create-a-folder-if-it-doesnt-exist-from-vimrc
+    if !isdirectory(g:cache_folder)
+        call mkdir(g:cache_folder,'p')
+    endif
+    if !isdirectory(g:cache_folder.'/'.a:name)
+        call mkdir(g:cache_folder.'/'.a:name, 'p')
+    endif
+endfunction
 """""""""""""""""
 " VOom
 """""""""""""""""
@@ -190,20 +205,15 @@ endif
 " vim undo (for vim 7.3)
 """"""""""""""""""""""
 if v:version >= 703
-    if !isdirectory($HOME.'/.vim_cache/undo/')
-        " NOTE(jeffrey4l) This is not work. But I don't know why?
-        " This trick came from 
-        " http://stackoverflow.com/questions/1549263/how-can-i-create-a-folder-if-it-doesnt-exist-from-vimrc
-        "call mkdir($HOME.'/.vim/tmp/','p')
-        silent !mkdir -p ~/.vim_cache/undo/ > /dev/null 2>&1
-    endif
+    call Ensure_cache_folder('undo')
     set undofile
     set undolevels=10000
     set undodir=$HOME/.vim_cache/undo
 endif
 
-set backupdir=$HOME/.vim_cache/backup
-set dir=$HOME/.vim_cache/backup
+call Ensure_cache_folder('backup')
+let &backupdir=g:cache_folder.'/backup/'
+let &dir=g:cache_folder.'/backup'
 
 set go-=mTr
 
@@ -257,10 +267,11 @@ augroup end
 """""""""""""""""""""""
 "   YankRing setting
 """""""""""""""""""""""
+call Ensure_cache_folder('yankring')
 Bundle "YankRing.vim"
 let g:yankring_max_history=20
 let g:yankring_zap_keys = '@'
-let g:yankring_history_dir = $HOME.'/.vim_cache/yankring/'
+let g:yankring_history_dir = g:cache_folder.'/yankring'
 """"""""""""""""""""""
 " pyflakes plugin
 """"""""""""""""""""""
