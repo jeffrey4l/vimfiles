@@ -38,6 +38,7 @@ Bundle "puppetlabs/puppet-syntax-vim"
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'Lokaltog/powerline'
 Bundle 'ameade/qtpy-vim'
+Bundle 'juvenn/mustache.vim'
 """""""""""""""""
 " VOom
 """""""""""""""""
@@ -177,7 +178,7 @@ let mapleader=","
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype htmldjango setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
-autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 """"""""""""""""""""""
 " gvim fullscreen on start
 """"""""""""""""""""""
@@ -189,17 +190,20 @@ endif
 " vim undo (for vim 7.3)
 """"""""""""""""""""""
 if v:version >= 703
-    if !isdirectory($HOME.'/.vim_undo')
+    if !isdirectory($HOME.'/.vim_cache/undo/')
         " NOTE(jeffrey4l) This is not work. But I don't know why?
         " This trick came from 
         " http://stackoverflow.com/questions/1549263/how-can-i-create-a-folder-if-it-doesnt-exist-from-vimrc
         "call mkdir($HOME.'/.vim/tmp/','p')
-        silent !mkdir ~/.vim_undo > /dev/null 2>&1
+        silent !mkdir -p ~/.vim_cache/undo/ > /dev/null 2>&1
     endif
     set undofile
     set undolevels=10000
-    set undodir=$HOME/.vim_undo
+    set undodir=$HOME/.vim_cache/undo
 endif
+
+set backupdir=$HOME/.vim_cache/backup
+set dir=$HOME/.vim_cache/backup
 
 set go-=mTr
 
@@ -256,6 +260,7 @@ augroup end
 Bundle "YankRing.vim"
 let g:yankring_max_history=20
 let g:yankring_zap_keys = '@'
+let g:yankring_history_dir = $HOME.'/.vim_cache/yankring/'
 """"""""""""""""""""""
 " pyflakes plugin
 """"""""""""""""""""""
