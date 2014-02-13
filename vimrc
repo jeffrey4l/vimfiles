@@ -25,7 +25,6 @@ Bundle 'vim-scripts/Tabbi'
 Bundle 'vim-scripts/vim-coffee-script'
 Bundle 'vim-scripts/ZenCoding.vim'
 Bundle 'groenewege/vim-less'
-Bundle "Markdown"
 Bundle "vim-scripts/tiddlywiki"
 Bundle "repeat.vim"
 Bundle "surround.vim"
@@ -39,6 +38,20 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'Lokaltog/powerline'
 Bundle 'ameade/qtpy-vim'
 Bundle 'juvenn/mustache.vim'
+"""""""""""""""""""""""""""
+" Markdown 
+"""""""""""""""""""""""""""
+Bundle 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled=1
+"""""""""""""""""""""""""""
+" Advance Javascript Syntax
+"""""""""""""""""""""""""""
+Bundle 'pangloss/vim-javascript'
+"""""""""""""""""""""""""""
+" jshint2
+"""""""""""""""""""""""""""
+Bundle 'Shutnik/jshint2.vim'
+
 """""""""""""""""""""""""""
 " Ensure_cache_folder
 """""""""""""""""""""""""""
@@ -61,12 +74,6 @@ Bundle 'VOoM'
 let g:voom_ft_modes = {'markdown': 'markdown'}
 let g:voom_tree_placement = 'right'
 """""""""""""""""
-" Vim Auto Save 
-"""""""""""""""""
-Bundle 'vim-auto-save'
-let g:auto_save = 1
-let g:auto_save_no_updatetime = 1
-"""""""""""""""""
 " jade
 """""""""""""""""
 Bundle 'jade.vim'
@@ -84,7 +91,7 @@ let g:jedi#popup_select_first = 0
 " neocomplcache
 """""""""""""""""
 Bundle 'neocomplcache'
-let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_at_startup = 0
 if !exists('g:neocomplcache_omni_functions')
     let g:neocomplcache_omni_functions = {}
 endif
@@ -96,18 +103,6 @@ endif
 let g:neocomplcache_force_omni_patterns.python = '[^. \t]\.\w*'
 imap <silent><C-l>     <Plug>(neocomplcache_snippets_expand)
 smap <silent><C-l>     <Plug>(neocomplcache_snippets_expand)
-
-"""""""""""""""""
-" Vim indent Guides
-"""""""""""""""""
-Bundle "nathanaelkane/vim-indent-guides"
-let g:indent_guides_auto_colors = 0 
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=black
-autocmd VimEnter,ColorScheme * :hi IndentGuidesEven ctermbg=darkgrey
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3 
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4 
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
 
 """""""""""""""""
 "General Setting"
@@ -299,7 +294,7 @@ let NERDTreeCaseSensitiveSort = 0	" Tells the NERD tree whether to be case sensi
 let NERDTreeChDirMode = 0		" Tells the NERD tree if/when it should change vim's current working directory.
 let NERDTreeHighlightCursorline = 1	" Tell the NERD tree whether to highlight the current cursor line.
 let NERDTreeHijackNetrw = 1		" Tell the NERD tree whether to replace the netrw autocommands for exploring local directories.
-let NERDTreeIgnore= ['\~$','.*\.pyc','.*\.pyo']		" Tells the NERD tree which files to ignore.
+let NERDTreeIgnore= ['\~$','.*\.pyc','.*\.pyo', 'tags', 'cscope']		" Tells the NERD tree which files to ignore.
 let NERDTreeBookmarksFile =$HOME.'/.NERDTreeBookmarks' " Where the bookmarks are stored.
 let NERDTreeMouseMode = 2 		" Tells the NERD tree how to handle mouse clicks.
 let NERDTreeQuitOnOpen = 0		" Closes the tree window after opening a file.
