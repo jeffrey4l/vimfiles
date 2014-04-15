@@ -38,6 +38,8 @@ Bundle 'terryma/vim-multiple-cursors'
 Bundle 'Lokaltog/powerline'
 Bundle 'ameade/qtpy-vim'
 Bundle 'juvenn/mustache.vim'
+Bundle 'matchit.zip'
+Bundle 'tomasr/molokai'
 """""""""""""""""""""""""""
 " Markdown 
 """""""""""""""""""""""""""
@@ -91,7 +93,7 @@ let g:jedi#popup_select_first = 0
 " neocomplcache
 """""""""""""""""
 Bundle 'neocomplcache'
-let g:neocomplcache_enable_at_startup = 0
+let g:neocomplcache_enable_at_startup = 1
 if !exists('g:neocomplcache_omni_functions')
     let g:neocomplcache_omni_functions = {}
 endif
@@ -179,7 +181,6 @@ nnoremap j gj
 vmap j gj
 nnoremap k gk
 vmap k gk
-map ; :
 au FileType javascript map <C-f> :call g:Jsbeautify()<CR>
 let mapleader=","
 """"""""""""""""""""""""
@@ -294,7 +295,8 @@ let NERDTreeCaseSensitiveSort = 0	" Tells the NERD tree whether to be case sensi
 let NERDTreeChDirMode = 0		" Tells the NERD tree if/when it should change vim's current working directory.
 let NERDTreeHighlightCursorline = 1	" Tell the NERD tree whether to highlight the current cursor line.
 let NERDTreeHijackNetrw = 1		" Tell the NERD tree whether to replace the netrw autocommands for exploring local directories.
-let NERDTreeIgnore= ['\~$','.*\.pyc','.*\.pyo', 'tags', 'cscope']		" Tells the NERD tree which files to ignore.
+let NERDTreeIgnore= ['\~$','.*\.pyc','.*\.pyo', '^tags$', 'cscope', 
+                    \ '.*\.egg-info$', '.*\.egg$']
 let NERDTreeBookmarksFile =$HOME.'/.NERDTreeBookmarks' " Where the bookmarks are stored.
 let NERDTreeMouseMode = 2 		" Tells the NERD tree how to handle mouse clicks.
 let NERDTreeQuitOnOpen = 0		" Closes the tree window after opening a file.
