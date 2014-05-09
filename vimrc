@@ -40,6 +40,11 @@ Bundle 'ameade/qtpy-vim'
 Bundle 'juvenn/mustache.vim'
 Bundle 'matchit.zip'
 Bundle 'tomasr/molokai'
+Bundle 'kien/ctrlp.vim'
+"map <leader>f :CtrlP <CR>
+let g:ctrlp_map = '<leader>f'
+let g:ctrlp_cmd = 'CtrlP'
+
 """""""""""""""""""""""""""
 " Markdown 
 """""""""""""""""""""""""""
@@ -409,18 +414,16 @@ let Powerline_colorscheme="skwp"
 " vim coffee plugin
 """""""""""""""""""""""
 let coffee_compiler='/usr/local/bin/coffee'
-"""""""""""""""""
-" Unite
-"""""""""""""""""
-Bundle 'Shougo/unite.vim'
-map <leader>f :<C-u>Unite -start-insert file<CR>
-map <leader>r :<C-u>Unite -start-insert file_rec<CR>
-map <leader>m :<C-u>Unite file_mru<CR>
-map <leader>y :<C-u>Unite history/yank<CR>
-map <silent> <leader>b :<C-u>Unite buffer file_mru bookmark<CR>
 """""""""""""""""""
 " Dockerfile Syntax
 """""""""""""""""""
 "Bundle 'honza/dockerfile.vim'
 Bundle "ekalinin/Dockerfile.vim"
 
+Bundle 'saltstack/salt-vim'
+autocmd BufRead,BufNewFile *.sls set filetype=sls
+autocmd Filetype sls setlocal tabstop=2 shiftwidth=2
+autocmd Filetype yaml setlocal tabstop=2 shiftwidth=2
+
+" Edit javascript in html. 
+Bundle 'AndrewRadev/inline_edit.vim'
