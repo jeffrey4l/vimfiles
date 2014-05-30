@@ -1,7 +1,7 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim/
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
 call vundle#rc()
 
@@ -11,6 +11,7 @@ call vundle#rc()
 """""""""""""""""
 set switchbuf+=newtab,usetab
 
+Bundle 'gmarik/Vundle.vim'
 Bundle 'vim-dokuwiki'
 Bundle "jQuery"
 Bundle 'rstacruz/sparkup'
@@ -20,7 +21,6 @@ Bundle 'vim-scripts/MatchTag'
 Bundle 'Shougo/neosnippet.git'
 Bundle 'vim-scripts/nginx.vim'
 Bundle 'vim-scripts/speeddating.vim'
-Bundle 'vim-scripts/surround.vim'
 Bundle 'vim-scripts/Tabbi'
 Bundle 'vim-scripts/vim-coffee-script'
 Bundle 'vim-scripts/ZenCoding.vim'
@@ -297,7 +297,7 @@ let NERDChristmasTree = 1		" Tells the NERD tree to make itself colourful and pr
 let NERDTreeAutoCenter =1		" Window centers when the cursor moves within a specified distance to the top/bottom of the window.
 let NERDTreeAutoCenterThreshold = 3	" Controls the sensitivity of autocentering.
 let NERDTreeCaseSensitiveSort = 0	" Tells the NERD tree whether to be case sensitive or not when sorting nodes.
-let NERDTreeChDirMode = 0		" Tells the NERD tree if/when it should change vim's current working directory.
+let NERDTreeChDirMode = 2		" Tells the NERD tree if/when it should change vim's current working directory.
 let NERDTreeHighlightCursorline = 1	" Tell the NERD tree whether to highlight the current cursor line.
 let NERDTreeHijackNetrw = 1		" Tell the NERD tree whether to replace the netrw autocommands for exploring local directories.
 let NERDTreeIgnore= ['\~$','.*\.pyc','.*\.pyo', '^tags$', 'cscope', 
@@ -313,6 +313,8 @@ let NERDTreeSortOrder = ['\/$', '*', '\.swp$', '\.bak$', '\~$'] " Tell the NERD 
 let NERDTreeStatusline = "%{exists('b:NERDTreeRoot')?b:NERDTreeRoot.path.str():''}" " Set a statusline for NERD tree windows.
 let NERDTreeWinPos = "left"		" Tells the script where to put the NERD tree window
 let NERDTreeWinSize = 21		" Sets the window size when the NERD tree is opened.
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
 nmap <F3> :NERDTreeToggle<CR> :NERDTreeMirror<CR>
 
 """"""""""""""""""""""""""""""
