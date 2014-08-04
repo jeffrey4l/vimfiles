@@ -23,7 +23,7 @@ Bundle 'vim-scripts/nginx.vim'
 Bundle 'vim-scripts/speeddating.vim'
 Bundle 'vim-scripts/Tabbi'
 Bundle 'vim-scripts/vim-coffee-script'
-Bundle 'vim-scripts/ZenCoding.vim'
+Bundle 'vim-scripts/Emmet.vim'
 Bundle 'groenewege/vim-less'
 Bundle "vim-scripts/tiddlywiki"
 Bundle "repeat.vim"
@@ -35,7 +35,6 @@ Bundle 'toggle_mouse'
 Bundle "scrooloose/syntastic"
 Bundle "puppetlabs/puppet-syntax-vim"
 Bundle 'terryma/vim-multiple-cursors'
-Bundle 'Lokaltog/powerline'
 Bundle 'ameade/qtpy-vim'
 Bundle 'juvenn/mustache.vim'
 Bundle 'matchit.zip'
@@ -116,6 +115,7 @@ smap <silent><C-l>     <Plug>(neocomplcache_snippets_expand)
 """""""""""""""""
 filetype plugin indent on
 set number
+set t_Co=256
 if $TERM =~ '^xterm'
         set t_Co=256
         colorscheme molokai
@@ -205,12 +205,10 @@ endif
 """"""""""""""""""""""
 " vim undo (for vim 7.3)
 """"""""""""""""""""""
-if v:version >= 703
-    call Ensure_cache_folder('undo')
-    set undofile
-    set undolevels=10000
-    set undodir=$HOME/.vim_cache/undo
-endif
+call Ensure_cache_folder('undo')
+set undofile
+set undolevels=10000
+set undodir=$HOME/.vim_cache/undo
 
 call Ensure_cache_folder('backup')
 let &backupdir=g:cache_folder.'/backup/'
@@ -410,8 +408,8 @@ Bundle "ack.vim"
 """""""""""""""""""""""
 " Power line plugin
 """""""""""""""""""""""
-Bundle 'Lokaltog/vim-powerline'
-let Powerline_colorscheme="skwp"
+Bundle 'Lokaltog/powerline'
+"let Powerline_colorscheme="skwp"
 """""""""""""""""""""""
 " vim coffee plugin
 """""""""""""""""""""""
@@ -429,3 +427,5 @@ autocmd Filetype yaml setlocal tabstop=2 shiftwidth=2
 
 " Edit javascript in html. 
 Bundle 'AndrewRadev/inline_edit.vim'
+
+set foldmethod=manual
