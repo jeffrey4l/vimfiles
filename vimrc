@@ -1,9 +1,6 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/Vundle.vim/
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
-call vundle#rc()
 """""""""""""""""
 "General Setting"
 """""""""""""""""
