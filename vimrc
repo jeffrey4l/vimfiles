@@ -43,6 +43,10 @@ Bundle 'kien/ctrlp.vim'
 "map <leader>f :CtrlP <CR>
 let g:ctrlp_map = '<leader>f'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_custom_ignore = {
+    \ 'dir': '\.git$\|\.svn$',
+    \ 'file': '\.pyc$\|\.pyo$'
+    \}
 
 """""""""""""""""""""""""""
 " Markdown 
