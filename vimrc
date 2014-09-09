@@ -393,7 +393,6 @@ let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'"}
 " Tagbar plugin
 """""""""""""""""""""""
 Bundle 'vim-scripts/Tagbar'
-autocmd VimEnter * nested :call tagbar#autoopen(1)
 map <F4> :TagbarToggle<CR>
 let g:tagbar_width=30
 """""""""""""""""""""""
