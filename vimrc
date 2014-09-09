@@ -11,6 +11,7 @@ call vundle#rc()
 """""""""""""""""
 set switchbuf+=newtab,usetab
 
+Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'gmarik/Vundle.vim'
 Bundle 'vim-dokuwiki'
 Bundle "jQuery"
@@ -163,7 +164,6 @@ set shiftwidth=4
 set softtabstop=4
 set cindent
 set autoindent
-let VIMFILES=$HOME."/.vim"
 set guifont=Monospace\ 12
 """""""""""""""""""""""
 "   vim mapping setting
@@ -235,14 +235,7 @@ set ignorecase
 set fencs=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936 "set gvim to show chinese
 set statusline=%F%m%r%h%w\ [F=%{&ff}]\ [T=%Y]\ [A=\%03.3b]\ [H=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 set laststatus=2
-
-
-
-if has('win32')
-    set encoding=cp936
-else
-    set encoding=utf-8
-endif
+set encoding=utf-8
 
 """""""""""""""""
 " Auto Commands
