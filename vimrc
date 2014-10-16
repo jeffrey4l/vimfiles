@@ -11,6 +11,7 @@ call vundle#rc()
 """""""""""""""""
 set switchbuf+=newtab,usetab
 
+Bundle 'tpope/vim-fugitive'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'gmarik/Vundle.vim'
 Bundle 'vim-dokuwiki'
@@ -296,7 +297,7 @@ let NERDTreeChDirMode = 2		" Tells the NERD tree if/when it should change vim's 
 let NERDTreeHighlightCursorline = 1	" Tell the NERD tree whether to highlight the current cursor line.
 let NERDTreeHijackNetrw = 1		" Tell the NERD tree whether to replace the netrw autocommands for exploring local directories.
 let NERDTreeIgnore= ['\~$','.*\.pyc','.*\.pyo', '^tags$', 'cscope', 
-                    \ '.*\.egg-info$', '.*\.egg$']
+                    \ '.*\.egg-info$', '.*\.egg$', '__pycache__']
 let NERDTreeBookmarksFile =$HOME.'/.NERDTreeBookmarks' " Where the bookmarks are stored.
 let NERDTreeMouseMode = 2 		" Tells the NERD tree how to handle mouse clicks.
 let NERDTreeQuitOnOpen = 0		" Closes the tree window after opening a file.
