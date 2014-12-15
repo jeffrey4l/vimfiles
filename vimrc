@@ -20,7 +20,6 @@ Bundle 'rstacruz/sparkup'
 Bundle 'vim-scripts/calendar.vim'
 Bundle 'vim-scripts/DrawIt'
 Bundle 'vim-scripts/MatchTag'
-Bundle 'Shougo/neosnippet.git'
 Bundle 'vim-scripts/nginx.vim'
 Bundle 'vim-scripts/speeddating.vim'
 Bundle 'vim-scripts/Tabbi'
@@ -49,6 +48,11 @@ let g:ctrlp_custom_ignore = {
     \ 'dir': '\.git$\|\.svn$',
     \ 'file': '\.pyc$\|\.pyo$'
     \}
+
+"""""""""""""
+" Go Language
+"""""""""""""
+Plugin 'fatih/vim-go'
 
 """""""""""""""""""""""""""
 " Markdown 
@@ -96,25 +100,102 @@ Bundle 'jade.vim'
 Bundle "davidhalter/jedi-vim"
 let g:jedi#show_call_signatures = 0
 let g:jedi#auto_initialization = 1
-let g:jedi#popup_on_dot = 0
-"autocmd  FileType python let b:did_ftplugin = 1
+let g:jedi#popup_on_dot = 1
+autocmd  FileType python let b:did_ftplugin = 1
 let g:jedi#popup_select_first = 0
 """""""""""""""""
-" neocomplcache
+" neocomplcache.vim
 """""""""""""""""
-Bundle 'neocomplcache'
-let g:neocomplcache_enable_at_startup = 1
-if !exists('g:neocomplcache_omni_functions')
-    let g:neocomplcache_omni_functions = {}
-endif
-let g:neocomplcache_omni_functions['python'] = 'jedi#completions'
+Bundle 'Shougo/neocomplete.vim'
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
-if !exists('g:neocomplcache_force_omni_patterns')
-  let g:neocomplcache_force_omni_patterns = {}
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
 endif
-let g:neocomplcache_force_omni_patterns.python = '[^. \t]\.\w*'
-imap <silent><C-l>     <Plug>(neocomplcache_snippets_expand)
-smap <silent><C-l>     <Plug>(neocomplcache_snippets_expand)
+
+autocmd FileType python setlocal omnifunc=jedi#completions
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+let g:neocomplete#force_omni_input_patterns.python = 
+	\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return neocomplete#close_popup() . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
+
+" For cursor moving in insert mode(Not recommended)
+"inoremap <expr><Left>  neocomplete#close_popup() . "\<Left>"
+"inoremap <expr><Right> neocomplete#close_popup() . "\<Right>"
+"inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
+"inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
+" Or set this.
+"let g:neocomplete#enable_cursor_hold_i = 1
+" Or set this.
+"let g:neocomplete#enable_insert_char_pre = 1
+
+" AutoComplPop like behavior.
+"let g:neocomplete#enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+Bundle 'Shougo/neosnippet.git'
+Bundle 'Shougo/neosnippet-snippets'
 
 """""""""""""""""
 "General Setting"
@@ -414,8 +495,8 @@ let coffee_compiler='/usr/local/bin/coffee'
 """""""""""""""""""
 " Dockerfile Syntax
 """""""""""""""""""
-"Bundle 'honza/dockerfile.vim'
 Bundle "ekalinin/Dockerfile.vim"
+autocmd BufRead,BufNewFile Dockerfile set ft=Dockerfile
 
 Bundle 'saltstack/salt-vim'
 autocmd BufRead,BufNewFile *.sls set filetype=sls
