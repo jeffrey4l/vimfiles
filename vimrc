@@ -418,3 +418,8 @@ autocmd Filetype yaml setlocal tabstop=2 shiftwidth=2
 Bundle 'AndrewRadev/inline_edit.vim'
 
 set foldmethod=manual
+
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
