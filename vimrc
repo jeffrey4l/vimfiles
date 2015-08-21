@@ -207,7 +207,7 @@ endif
 call Ensure_cache_folder('undo')
 set undofile
 set undolevels=10000
-set undodir=$HOME/.vim_cache/undo
+set undodir=$HOME/.vim.cache/undo
 
 call Ensure_cache_folder('backup')
 let &backupdir=g:cache_folder.'/backup/'
