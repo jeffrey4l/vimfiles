@@ -14,8 +14,6 @@ set switchbuf+=newtab,usetab
 Bundle 'tpope/vim-fugitive'
 Bundle 'hynek/vim-python-pep8-indent'
 Bundle 'gmarik/Vundle.vim'
-Bundle 'vim-dokuwiki'
-Bundle "jQuery"
 Bundle 'rstacruz/sparkup'
 Bundle 'vim-scripts/calendar.vim'
 Bundle 'vim-scripts/DrawIt'
@@ -25,29 +23,41 @@ Bundle 'vim-scripts/speeddating.vim'
 Bundle 'vim-scripts/Tabbi'
 Bundle 'vim-scripts/vim-coffee-script'
 Bundle 'vim-scripts/Emmet.vim'
-Bundle 'groenewege/vim-less'
-Bundle "vim-scripts/tiddlywiki"
 Bundle "repeat.vim"
 Bundle "surround.vim"
-Bundle "file-line"
 Bundle "Align"
 Bundle 'toggle_mouse'
-Bundle "scrooloose/syntastic"
 Bundle "puppetlabs/puppet-syntax-vim"
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'ameade/qtpy-vim'
 Bundle 'juvenn/mustache.vim'
 Bundle 'matchit.zip'
 Bundle 'tomasr/molokai'
+Bundle 'fholgado/minibufexpl.vim'
+
+"""""""""
+" CtrlP "
+"""""""""
 Bundle 'kien/ctrlp.vim'
 "map <leader>f :CtrlP <CR>
 let g:ctrlp_map = '<leader>f'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = {
-    \ 'dir': '\.git$\|\.svn$',
+    \ 'dir': '\.git$\|\.svn$|\.tox$',
     \ 'file': '\.pyc$\|\.pyo$'
     \}
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
 
+"""""""""""""
+" Syntastic
+"""""""""""""
+Bundle "scrooloose/syntastic"
+let g:syntastic_python_python_exec = '/usr/bin/python2'
+let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
+let g:pymode_lint_write = 0
 """""""""""""
 " Go Language
 """""""""""""
@@ -82,12 +92,6 @@ function! Ensure_cache_folder(name)
         call mkdir(g:cache_folder.'/'.a:name, 'p')
     endif
 endfunction
-"""""""""""""""""
-" VOom
-"""""""""""""""""
-Bundle 'VOoM'
-let g:voom_ft_modes = {'markdown': 'markdown'}
-let g:voom_tree_placement = 'right'
 """""""""""""""""
 " jade
 """""""""""""""""
@@ -251,7 +255,6 @@ augroup python
         call append(2, '#Author: Lei Zhang <zhang.lei.fly@gmail.com>')
         normal G
         normal o
-        normal O
     endf
     autocmd BufNewFile *.py call AddTitlePython()
 augroup end
@@ -263,11 +266,6 @@ Bundle "YankRing.vim"
 let g:yankring_max_history=20
 let g:yankring_zap_keys = '@'
 let g:yankring_history_dir = g:cache_folder.'/yankring'
-""""""""""""""""""""""
-" pyflakes plugin
-""""""""""""""""""""""
-Bundle 'vim-scripts/pyflakes.vim'
-let g:pyflakes_use_quickfix = 0
 """""""""""""""""""""""
 "   tags setting
 """""""""""""""""""""""
@@ -281,7 +279,7 @@ nmap <C-y> <leader>c<space>
 """"""""""""""""""""""""""""
 " NERD_tree
 """"""""""""""""""""""""""""""
-Bundle 'vim-scripts/The-NERD-tree'
+Bundle 'scrooloose/nerdtree'
 "let loaded_nerd_tree=1
 let NERDChristmasTree = 1		" Tells the NERD tree to make itself colourful and pretty.
 let NERDTreeAutoCenter =1		" Window centers when the cursor moves within a specified distance to the top/bottom of the window.
