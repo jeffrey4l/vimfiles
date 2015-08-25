@@ -96,11 +96,7 @@ endfunction
 " jade
 """""""""""""""""
 Bundle 'jade.vim'
-"""""""""""""""""
-" YouCompleteMe
-"""""""""""""""""
 Plugin 'ervandew/supertab'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
@@ -421,3 +417,9 @@ if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
+"""""""""""""""""
+" YouCompleteMe
+"""""""""""""""""
+" Use archlinux package instead, install using following
+"   pacman -S vim-youcompleteme-git
+"Bundle 'Valloric/YouCompleteMe'
