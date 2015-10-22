@@ -198,6 +198,7 @@ set switchbuf+=newtab,usetab
 """""""""""""""
 Bundle 'fholgado/minibufexpl.vim'
 let g:miniBufExplMaxSize = 1
+map <F2> :MBEToggle<CR>
 
 """""""""
 " CtrlP "
@@ -210,10 +211,6 @@ let g:ctrlp_custom_ignore = {
     \ 'dir': '\.git$\|\.svn$|\.tox$',
     \ 'file': '\.pyc$\|\.pyo$'
     \}
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<c-t>'],
-    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-    \ }
 let g:ctrlp_switch_buffer = 'Et'
 map <leader>b :CtrlPBuffer<CR>
 
