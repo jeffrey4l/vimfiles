@@ -29,6 +29,23 @@ Bundle 'juvenn/mustache.vim'
 Bundle 'matchit.zip'
 Bundle 'tomasr/molokai'
 
+"""""""""""""
+" utrisnips "
+"""""""""""""
+Plugin 'ervandew/supertab'
+Bundle 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
 """""""""""""""""""""""""""
 " Ensure_cache_folder
 """""""""""""""""""""""""""
@@ -244,19 +261,6 @@ Bundle 'Shutnik/jshint2.vim'
 " jade
 """""""""""""""""
 Bundle 'jade.vim'
-Plugin 'ervandew/supertab'
-Bundle 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 """""""""""""""""""""""
 "   YankRing setting
