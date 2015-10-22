@@ -3,39 +3,57 @@ filetype off                   " required!
 
 set rtp+=~/.vim/bundle/Vundle.vim/
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
-call vundle#rc()
+call vundle#begin()
 
-Bundle 'gmarik/Vundle.vim'
-Bundle "django.vim"
-Bundle 'tpope/vim-fugitive'
-Bundle 'hynek/vim-python-pep8-indent'
-Bundle 'rstacruz/sparkup'
-Bundle 'vim-scripts/calendar.vim'
-Bundle 'vim-scripts/DrawIt'
-Bundle 'vim-scripts/MatchTag'
-Bundle 'vim-scripts/nginx.vim'
-Bundle 'vim-scripts/speeddating.vim'
-Bundle 'vim-scripts/Tabbi'
-Bundle 'vim-scripts/vim-coffee-script'
-Bundle 'vim-scripts/Emmet.vim'
-Bundle "repeat.vim"
-Bundle "surround.vim"
-Bundle "Align"
-Bundle 'toggle_mouse'
-Bundle "puppetlabs/puppet-syntax-vim"
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'ameade/qtpy-vim'
-Bundle 'juvenn/mustache.vim'
-Bundle 'matchit.zip'
-Bundle 'tomasr/molokai'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'django.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'rstacruz/sparkup'
+Plugin 'vim-scripts/calendar.vim'
+Plugin 'vim-scripts/DrawIt'
+Plugin 'vim-scripts/MatchTag'
+Plugin 'vim-scripts/nginx.vim'
+Plugin 'vim-scripts/speeddating.vim'
+Plugin 'vim-scripts/Tabbi'
+Plugin 'vim-scripts/vim-coffee-script'
+Plugin 'vim-scripts/Emmet.vim'
+Plugin 'repeat.vim'
+Plugin 'surround.vim'
+Plugin 'Align'
+Plugin 'toggle_mouse'
+Plugin 'puppetlabs/puppet-syntax-vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'ameade/qtpy-vim'
+Plugin 'juvenn/mustache.vim'
+Plugin 'matchit.zip'
+Plugin 'tomasr/molokai'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'Lokaltog/powerline'
+Plugin 'ack.vim'
+Plugin 'vim-scripts/Tagbar'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-scripts/The-NERD-Commenter'
+Plugin 'YankRing.vim'
+Plugin 'jade.vim'
+Plugin 'Shutnik/jshint2.vim'
+Plugin 'saltstack/salt-vim'
+Plugin 'AndrewRadev/inline_edit.vim'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'scrooloose/syntastic'
+Plugin 'kien/ctrlp.vim'
+Plugin 'ervandew/supertab'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+call vundle#end() 
+filetype plugin indent on
+
 
 """""""""""""
 " utrisnips "
 """""""""""""
-Plugin 'ervandew/supertab'
-Bundle 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-
 " make YCM compatible with UltiSnips (using supertab)
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
@@ -66,7 +84,6 @@ endfunction
 "General Setting"
 """""""""""""""""
 let mapleader=","
-filetype plugin indent on
 set number
 set t_Co=256
 if $TERM =~ '^xterm'
@@ -213,14 +230,12 @@ set switchbuf+=newtab,usetab
 """""""""""""""
 " minibufexpl "
 """""""""""""""
-Bundle 'fholgado/minibufexpl.vim'
 let g:miniBufExplMaxSize = 1
 map <F2> :MBEToggle<CR>
 
 """""""""
 " CtrlP "
 """""""""
-Bundle 'kien/ctrlp.vim'
 "map <leader>f :CtrlP <CR>
 let g:ctrlp_map = '<leader>f'
 let g:ctrlp_cmd = 'CtrlP'
@@ -234,7 +249,6 @@ map <leader>b :CtrlPBuffer<CR>
 """""""""""""
 " Syntastic
 """""""""""""
-Bundle "scrooloose/syntastic"
 let g:syntastic_python_python_exec = '/usr/bin/python2'
 let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
 let g:pymode_lint_write = 0
@@ -246,27 +260,22 @@ Plugin 'fatih/vim-go'
 """""""""""""""""""""""""""
 " Markdown 
 """""""""""""""""""""""""""
-Bundle 'plasticboy/vim-markdown'
 let g:vim_markdown_folding_disabled=1
 """""""""""""""""""""""""""
 " Advance Javascript Syntax
 """""""""""""""""""""""""""
-Bundle 'pangloss/vim-javascript'
 """""""""""""""""""""""""""
 " jshint2
 """""""""""""""""""""""""""
-Bundle 'Shutnik/jshint2.vim'
 
 """""""""""""""""
 " jade
 """""""""""""""""
-Bundle 'jade.vim'
 
 """""""""""""""""""""""
 "   YankRing setting
 """""""""""""""""""""""
 call Ensure_cache_folder('yankring')
-Bundle "YankRing.vim"
 let g:yankring_max_history=20
 let g:yankring_zap_keys = '@'
 let g:yankring_history_dir = g:cache_folder.'/yankring'
@@ -277,13 +286,11 @@ map<F10> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 """"""""""""""""""""""""""""""
 " NERD_commenter
 """"""""""""""""""""""""""""""
-Bundle 'vim-scripts/The-NERD-Commenter'
 let NERDShutUp=1
 nmap <C-y> <leader>c<space>
 """"""""""""""""""""""""""""
 " NERD_tree
 """"""""""""""""""""""""""""""
-Bundle 'scrooloose/nerdtree'
 "let loaded_nerd_tree=1
 let NERDChristmasTree = 1		" Tells the NERD tree to make itself colourful and pretty.
 let NERDTreeAutoCenter =1		" Window centers when the cursor moves within a specified distance to the top/bottom of the window.
@@ -387,19 +394,16 @@ let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'"}
 """""""""""""""""""""""
 " Tagbar plugin
 """""""""""""""""""""""
-Bundle 'vim-scripts/Tagbar'
 map <F4> :TagbarToggle<CR>
 let g:tagbar_width=30
 """""""""""""""""""""""
 " Ack.vim plugin
 """""""""""""""""""""""
-Bundle "ack.vim"
 "let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 "let g:langpair="en|zh-CN"
 """""""""""""""""""""""
 " Power line plugin
 """""""""""""""""""""""
-Bundle 'Lokaltog/powerline'
 "let Powerline_colorscheme="skwp"
 """""""""""""""""""""""
 " vim coffee plugin
@@ -408,15 +412,11 @@ let coffee_compiler='/usr/local/bin/coffee'
 """""""""""""""""""
 " Dockerfile Syntax
 """""""""""""""""""
-Bundle "ekalinin/Dockerfile.vim"
-
-Bundle 'saltstack/salt-vim'
 autocmd BufRead,BufNewFile *.sls set filetype=sls
 autocmd Filetype sls setlocal tabstop=2 shiftwidth=2
 autocmd Filetype yaml setlocal tabstop=2 shiftwidth=2
 
 " Edit javascript in html. 
-Bundle 'AndrewRadev/inline_edit.vim'
 
 set foldmethod=manual
 
