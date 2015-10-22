@@ -5,15 +5,10 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
 call vundle#rc()
 
-"""""""""""""""""
-" Vim quickfix list launch files in new tab
-" http://stackoverflow.com/questions/6852763/vim-quickfix-list-launch-files-in-new-tab
-"""""""""""""""""
-set switchbuf+=newtab,usetab
-
+Bundle 'gmarik/Vundle.vim'
+Bundle "django.vim"
 Bundle 'tpope/vim-fugitive'
 Bundle 'hynek/vim-python-pep8-indent'
-Bundle 'gmarik/Vundle.vim'
 Bundle 'rstacruz/sparkup'
 Bundle 'vim-scripts/calendar.vim'
 Bundle 'vim-scripts/DrawIt'
@@ -33,49 +28,6 @@ Bundle 'ameade/qtpy-vim'
 Bundle 'juvenn/mustache.vim'
 Bundle 'matchit.zip'
 Bundle 'tomasr/molokai'
-Bundle 'fholgado/minibufexpl.vim'
-
-"""""""""
-" CtrlP "
-"""""""""
-Bundle 'kien/ctrlp.vim'
-"map <leader>f :CtrlP <CR>
-let g:ctrlp_map = '<leader>f'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_custom_ignore = {
-    \ 'dir': '\.git$\|\.svn$|\.tox$',
-    \ 'file': '\.pyc$\|\.pyo$'
-    \}
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<c-t>'],
-    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-    \ }
-
-"""""""""""""
-" Syntastic
-"""""""""""""
-Bundle "scrooloose/syntastic"
-let g:syntastic_python_python_exec = '/usr/bin/python2'
-let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
-let g:pymode_lint_write = 0
-"""""""""""""
-" Go Language
-"""""""""""""
-Plugin 'fatih/vim-go'
-
-"""""""""""""""""""""""""""
-" Markdown 
-"""""""""""""""""""""""""""
-Bundle 'plasticboy/vim-markdown'
-let g:vim_markdown_folding_disabled=1
-"""""""""""""""""""""""""""
-" Advance Javascript Syntax
-"""""""""""""""""""""""""""
-Bundle 'pangloss/vim-javascript'
-"""""""""""""""""""""""""""
-" jshint2
-"""""""""""""""""""""""""""
-Bundle 'Shutnik/jshint2.vim'
 
 """""""""""""""""""""""""""
 " Ensure_cache_folder
@@ -92,27 +44,11 @@ function! Ensure_cache_folder(name)
         call mkdir(g:cache_folder.'/'.a:name, 'p')
     endif
 endfunction
-"""""""""""""""""
-" jade
-"""""""""""""""""
-Bundle 'jade.vim'
-Plugin 'ervandew/supertab'
-Bundle 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 """""""""""""""""
 "General Setting"
 """""""""""""""""
+let mapleader=","
 filetype plugin indent on
 set number
 set t_Co=256
@@ -150,9 +86,6 @@ command W w !sudo tee % > /dev/null
 "
 set clipboard+=unnamed
 
-"autocmd BufWritePre * silent! %s/\s\+$//
-"autocmd BufWritePre * silent! %s/\(\s*\n\)\+\%$//
-
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -186,7 +119,6 @@ vmap j gj
 nnoremap k gk
 vmap k gk
 au FileType javascript map <C-f> :call g:Jsbeautify()<CR>
-let mapleader=","
 """"""""""""""""""""""""
 " FileType configuration
 """"""""""""""""""""""""
@@ -227,7 +159,7 @@ set smartindent
 set scrolloff=5
 set history=1000
 set ignorecase
-set fencs=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936 "set gvim to show chinese
+set fencs=utf-8,ucs-bom,sjis,gb18030,gbk,gb2312,cp936 "set gvim to show chinese
 set statusline=%F%m%r%h%w\ [F=%{&ff}]\ [T=%Y]\ [A=\%03.3b]\ [H=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 set laststatus=2
 set encoding=utf-8
@@ -254,6 +186,81 @@ augroup python
     endf
     autocmd BufNewFile *.py call AddTitlePython()
 augroup end
+
+"""""""""""""""""
+" Vim quickfix list launch files in new tab
+" http://stackoverflow.com/questions/6852763/vim-quickfix-list-launch-files-in-new-tab
+"""""""""""""""""
+set switchbuf+=newtab,usetab
+
+"""""""""""""""
+" minibufexpl "
+"""""""""""""""
+Bundle 'fholgado/minibufexpl.vim'
+let g:miniBufExplMaxSize = 1
+
+"""""""""
+" CtrlP "
+"""""""""
+Bundle 'kien/ctrlp.vim'
+"map <leader>f :CtrlP <CR>
+let g:ctrlp_map = '<leader>f'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_custom_ignore = {
+    \ 'dir': '\.git$\|\.svn$|\.tox$',
+    \ 'file': '\.pyc$\|\.pyo$'
+    \}
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
+let g:ctrlp_switch_buffer = 'Et'
+map <leader>b :CtrlPBuffer<CR>
+
+"""""""""""""
+" Syntastic
+"""""""""""""
+Bundle "scrooloose/syntastic"
+let g:syntastic_python_python_exec = '/usr/bin/python2'
+let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
+let g:pymode_lint_write = 0
+"""""""""""""
+" Go Language
+"""""""""""""
+Plugin 'fatih/vim-go'
+
+"""""""""""""""""""""""""""
+" Markdown 
+"""""""""""""""""""""""""""
+Bundle 'plasticboy/vim-markdown'
+let g:vim_markdown_folding_disabled=1
+"""""""""""""""""""""""""""
+" Advance Javascript Syntax
+"""""""""""""""""""""""""""
+Bundle 'pangloss/vim-javascript'
+"""""""""""""""""""""""""""
+" jshint2
+"""""""""""""""""""""""""""
+Bundle 'Shutnik/jshint2.vim'
+
+"""""""""""""""""
+" jade
+"""""""""""""""""
+Bundle 'jade.vim'
+Plugin 'ervandew/supertab'
+Bundle 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
 """""""""""""""""""""""
 "   YankRing setting
 """""""""""""""""""""""
@@ -401,7 +408,6 @@ let coffee_compiler='/usr/local/bin/coffee'
 " Dockerfile Syntax
 """""""""""""""""""
 Bundle "ekalinin/Dockerfile.vim"
-autocmd BufRead,BufNewFile Dockerfile set ft=Dockerfile
 
 Bundle 'saltstack/salt-vim'
 autocmd BufRead,BufNewFile *.sls set filetype=sls
