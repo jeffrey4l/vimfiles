@@ -3,8 +3,8 @@ filetype off                   " required!
 
 set rtp+=~/.vim/bundle/Vundle.vim/
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim/
-call vundle#begin()
 
+call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'django.vim'
 Plugin 'tpope/vim-fugitive'
@@ -21,6 +21,7 @@ Plugin 'vim-scripts/Emmet.vim'
 Plugin 'repeat.vim'
 Plugin 'surround.vim'
 Plugin 'Align'
+Plugin 'fatih/vim-go'
 Plugin 'toggle_mouse'
 Plugin 'puppetlabs/puppet-syntax-vim'
 Plugin 'terryma/vim-multiple-cursors'
@@ -51,18 +52,6 @@ call vundle#end()
 filetype plugin indent on
 
 
-"""""""""""""
-" utrisnips "
-"""""""""""""
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<tab>"
-let g:UltiSnipsJumpForwardTrigger = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 """""""""""""""""""""""""""
 " Ensure_cache_folder
@@ -127,6 +116,10 @@ set softtabstop=4
 set cindent
 set autoindent
 set guifont=Monospace\ 12
+
+autocmd FileType html set ft=htmldjango.html
+autocmd FileType xhtml set ft=htmldjango.html
+
 """""""""""""""""""""""
 "   vim mapping setting
 """""""""""""""""""""""
@@ -252,18 +245,12 @@ map <leader>b :CtrlPBuffer<CR>
 let g:syntastic_python_python_exec = '/usr/bin/python2'
 let g:syntastic_mode_map = { 'passive_filetypes': ['python'] }
 let g:pymode_lint_write = 0
-"""""""""""""
-" Go Language
-"""""""""""""
-Plugin 'fatih/vim-go'
 
 """""""""""""""""""""""""""
 " Markdown 
 """""""""""""""""""""""""""
 let g:vim_markdown_folding_disabled=1
-"""""""""""""""""""""""""""
-" Advance Javascript Syntax
-"""""""""""""""""""""""""""
+
 """""""""""""""""""""""""""
 " jshint2
 """""""""""""""""""""""""""
@@ -279,15 +266,18 @@ call Ensure_cache_folder('yankring')
 let g:yankring_max_history=20
 let g:yankring_zap_keys = '@'
 let g:yankring_history_dir = g:cache_folder.'/yankring'
+
 """""""""""""""""""""""
 "   tags setting
 """""""""""""""""""""""
 map<F10> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+
 """"""""""""""""""""""""""""""
 " NERD_commenter
 """"""""""""""""""""""""""""""
 let NERDShutUp=1
 nmap <C-y> <leader>c<space>
+
 """"""""""""""""""""""""""""
 " NERD_tree
 """"""""""""""""""""""""""""""
@@ -317,13 +307,6 @@ let NERDTreeDirArrows=1
 nmap <F3> :NERDTreeToggle<CR> :NERDTreeMirror<CR>
 
 """"""""""""""""""""""""""""""
-" snippets plugin
-""""""""""""""""""""""""""""""
-"autocmd FileType python set ft=python.django
-autocmd FileType html set ft=htmldjango.html
-autocmd FileType xhtml set ft=htmldjango.html
-
-""""""""""""""""""""""""""""""
 " cscope
 """"""""""""""""""""""""""""""
 cs add cscope.out
@@ -337,6 +320,7 @@ nmap <C-_>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-_>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-_>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 map <F11> :!cscope -Rbk<CR>
+
 """"""""""""""""""""""""""""""
 " Show Function
 """"""""""""""""""""""""""""""
@@ -345,10 +329,12 @@ if has("win32")
 else
     let g:showfuncctagsbin="/usr/bin/ctags"
 endif
+
 """"""""""""""""""""""""""""""
 " xml plugins
 """"""""""""""""""""""""""""""
 let xml_no_html=1
+
 """"""""""""""""""""""""""""""
 " Format XML by using xmllint
 """"""""""""""""""""""""""""""
@@ -380,35 +366,34 @@ function! DoPrettyXML()
   exe "set ft=" . l:origft
 endfunction
 command! PrettyXML call DoPrettyXML()
-""""""""""""""""""""""""""""""
-" snipMate
-""""""""""""""""""""""""""""""
-let g:snips_author='Jeffrey Zhang <zhang.lei.fly@gmail.com>'
-ino <c-j> <c-r>=TriggerSnippet()<cr>
-snor <c-j> <esc>i<right><c-r>=TriggerSnippet()<cr>
 
 """""""""""""""""""""""
 " autoclose plugin
 """""""""""""""""""""""
 let g:AutoClosePairs = {'(': ')', '{': '}', '[': ']', '"': '"', "'": "'"}
+
 """""""""""""""""""""""
 " Tagbar plugin
 """""""""""""""""""""""
 map <F4> :TagbarToggle<CR>
 let g:tagbar_width=30
+
 """""""""""""""""""""""
 " Ack.vim plugin
 """""""""""""""""""""""
 "let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 "let g:langpair="en|zh-CN"
+
 """""""""""""""""""""""
 " Power line plugin
 """""""""""""""""""""""
 "let Powerline_colorscheme="skwp"
+
 """""""""""""""""""""""
 " vim coffee plugin
 """""""""""""""""""""""
 let coffee_compiler='/usr/local/bin/coffee'
+
 """""""""""""""""""
 " Dockerfile Syntax
 """""""""""""""""""
@@ -416,17 +401,23 @@ autocmd BufRead,BufNewFile *.sls set filetype=sls
 autocmd Filetype sls setlocal tabstop=2 shiftwidth=2
 autocmd Filetype yaml setlocal tabstop=2 shiftwidth=2
 
-" Edit javascript in html. 
 
-set foldmethod=manual
-
-if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
 """""""""""""""""
 " YouCompleteMe
 """""""""""""""""
 " Use archlinux package instead, install using following
 "   pacman -S vim-youcompleteme-git
 "Bundle 'Valloric/YouCompleteMe'
+
+"""""""""""""
+" utrisnips "
+"""""""""""""
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
