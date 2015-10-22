@@ -51,8 +51,6 @@ Plugin 'honza/vim-snippets'
 call vundle#end() 
 filetype plugin indent on
 
-
-
 """""""""""""""""""""""""""
 " Ensure_cache_folder
 """""""""""""""""""""""""""
@@ -117,8 +115,6 @@ set cindent
 set autoindent
 set guifont=Monospace\ 12
 
-autocmd FileType html set ft=htmldjango.html
-autocmd FileType xhtml set ft=htmldjango.html
 
 """""""""""""""""""""""
 "   vim mapping setting
@@ -146,19 +142,6 @@ vmap j gj
 nnoremap k gk
 vmap k gk
 au FileType javascript map <C-f> :call g:Jsbeautify()<CR>
-""""""""""""""""""""""""
-" FileType configuration
-""""""""""""""""""""""""
-autocmd Filetype html setlocal ts=2 sts=2 sw=2
-autocmd Filetype htmldjango setlocal ts=2 sts=2 sw=2
-autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
-autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
-""""""""""""""""""""""
-" gvim fullscreen on start
-""""""""""""""""""""""
-if has("gui_running")
-    au GUIEnter * set fullscreen
-endif
 
 """"""""""""""""""""""
 " vim undo (for vim 7.3)
@@ -199,6 +182,14 @@ autocmd BufRead,BufNewFile *.tiddlywiki set filetype=tiddlywiki
 autocmd BufNewFile,BufRead .tmux.conf*,tmux.conf* set filetype=tmux
 autocmd BufRead,BufNewFile *.coffee set filetype=coffee
 autocmd BufRead,BufNewFile *.g set filetype=antlr3
+
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype htmldjango setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
+
+autocmd FileType html set ft=htmldjango.html
+autocmd FileType xhtml set ft=htmldjango.html
 
 """"""""""""""""""""""""
 " Python template
