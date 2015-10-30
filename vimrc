@@ -197,8 +197,7 @@ autocmd FileType xhtml set ft=htmldjango.html
 augroup python
     function AddTitlePython()
         call setline(1, '#!/usr/bin/env python')
-        call append(1, '#-*- coding:utf-8 -*-')
-        call append(2, '#Author: Lei Zhang <zhang.lei.fly@gmail.com>')
+        call append(1, '# -*- coding:utf-8 -*-')
         normal G
         normal o
     endf
@@ -412,3 +411,10 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+" Jedi
+let g:jedi#auto_initialization = 1
+let g:jedi#popup_on_dot = 0
+let g:jedi#show_call_signatures = 0
+"let g:jedi#auto_vim_configuration = 1
+let g:jedi#popup_select_first = 0
