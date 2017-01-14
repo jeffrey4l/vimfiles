@@ -1,26 +1,31 @@
 call plug#begin('~/.vim/plugged')
 
-" molokai colorschema
+" colorschema
 Plug 'tomasr/molokai'
 
 " edit plugin
 Plug 'tpope/vim-surround'
+Plug 'mattn/emmet-vim'
 
-" Ack plugin
+" search plugin
 Plug 'mileszs/ack.vim'
 
 " cscope maps
 Plug 'chazy/cscope_maps'
 
+" syntax
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoInstallBinaries' }
+Plug 'tpope/vim-speeddating'
+Plug 'chase/vim-ansible-yaml'
+
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Tagbar'
 
-Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoInstallBinaries' }
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'The-NERD-Commenter'
 Plug 'vim-syntastic/syntastic'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'ekalinin/Dockerfile.vim'
 Plug 'vim-airline/vim-airline'
 
 Plug 'ervandew/supertab'
@@ -30,8 +35,6 @@ Plug 'honza/vim-snippets'
 Plug 'fholgado/minibufexpl.vim'
 
 Plug 'tpope/vim-fugitive'
-
-Plug 'chase/vim-ansible-yaml'
 
 Plug 'toggle_mouse'
 
