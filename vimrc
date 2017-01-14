@@ -51,6 +51,13 @@ Plugin 'honza/vim-snippets'
 call vundle#end() 
 filetype plugin indent on
 
+""""""""""""""""""""""""""""""
+" Vim Ansible YAML
+""""""""""""""""""""""""""""""
+Plugin 'chase/vim-ansible-yaml'
+autocmd BufRead,BufNewFile *.yaml set filetype=ansible
+autocmd BufRead,BufNewFile *.yml set filetype=ansible
+
 """""""""""""""""""""""""""
 " Ensure_cache_folder
 """""""""""""""""""""""""""
@@ -389,15 +396,13 @@ let coffee_compiler='/usr/local/bin/coffee'
 """""""""""""""""""
 autocmd BufRead,BufNewFile *.sls set filetype=sls
 autocmd Filetype sls setlocal tabstop=2 shiftwidth=2
-autocmd Filetype yaml setlocal tabstop=2 shiftwidth=2
-
 
 """""""""""""""""
 " YouCompleteMe
 """""""""""""""""
 " Use archlinux package instead, install using following
 "   pacman -S vim-youcompleteme-git
-"Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 
 """""""""""""
 " utrisnips "
@@ -418,3 +423,8 @@ let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = 0
 "let g:jedi#auto_vim_configuration = 1
 let g:jedi#popup_select_first = 0
+
+"
+" vim jinja syntax
+"
+Plugin 'Glench/Vim-Jinja2-Syntax'
