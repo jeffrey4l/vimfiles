@@ -1,3 +1,5 @@
+set nocompatible
+
 set number
 set hlsearch
 set incsearch
@@ -9,6 +11,8 @@ set shiftwidth=4
 set softtabstop=4
 set cindent
 set autoindent
+
+set t_Co=256
 
 set fencs=utf-8,ucs-bom,gbk,gb2312,gb18030,gcp936 "set gvim to show chinese
 
@@ -43,3 +47,5 @@ vmap k gk
 
 " sudo write
 command W w !sudo tee % > /dev/null
+
+set guifont=Ubuntu\ Mono\ 18
