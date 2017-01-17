@@ -1,5 +1,9 @@
 set nocompatible
 
+filetype plugin on
+syntax on
+filetype indent on
+
 set number
 set hlsearch
 set incsearch
@@ -11,14 +15,17 @@ set shiftwidth=4
 set softtabstop=4
 set cindent
 set autoindent
+set smartindent
 
 set t_Co=256
 
-set fencs=utf-8,ucs-bom,gbk,gb2312,gb18030,gcp936 "set gvim to show chinese
+set fileencodings=utf-8,ucs-bom,gbk,gb2312,gb18030,cp936 "set gvim to show chinese
+set encoding=utf-8
 
 colorscheme molokai
 
 let mapleader = ","
+set mouse=a
 
 """""""""""""""""""""""
 " vim mapping setting "
@@ -48,4 +55,12 @@ vmap k gk
 " sudo write
 command W w !sudo tee % > /dev/null
 
+" gvim
 set guifont=Ubuntu\ Mono\ 18
+set go-=mTr
+
+set selection=exclusive
+set selectmode=mouse,key
+set completeopt=longest,menu
+set scrolloff=5
+set history=1000
