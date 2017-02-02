@@ -25,6 +25,8 @@ set encoding=utf-8
 colorscheme molokai
 
 let mapleader = ","
+let maplocalleader = "\\"
+
 set mouse=a
 
 """""""""""""""""""""""
