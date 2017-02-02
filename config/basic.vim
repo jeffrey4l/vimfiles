@@ -64,3 +64,9 @@ set selectmode=mouse,key
 set completeopt=longest,menu
 set scrolloff=5
 set history=1000
+
+"""""""""""""""""""""""""""""""""""""""""""""
+" Vim quickfix list launch files in new tab "
+"""""""""""""""""""""""""""""""""""""""""""""
+" http://stackoverflow.com/questions/6852763/vim-quickfix-list-launch-files-in-new-tab
+set switchbuf+=newtab,usetab
