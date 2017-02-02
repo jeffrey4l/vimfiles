@@ -4,19 +4,14 @@
 map <F4> :TagbarToggle<CR>
 let g:tagbar_width=30
 
+" ale
+" Write this in your vimrc file
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 0
+" You can disable this option too
+" if you don't want linters to run on opening a file
+let g:ale_lint_on_enter = 0
 
-"""""""""""""""""
-" vim syntastic "
-"""""""""""""""""
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:jedi#show_call_signatures = 0
 
 """""""""""
 " Ack.vim "

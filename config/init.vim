@@ -24,9 +24,11 @@ Plug 'Tagbar'
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'The-NERD-Commenter'
-Plug 'vim-syntastic/syntastic'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
+
+" syntax check
+Plug 'w0rp/ale'
 
 Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
