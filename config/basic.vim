@@ -72,3 +72,7 @@ set history=1000
 """""""""""""""""""""""""""""""""""""""""""""
 " http://stackoverflow.com/questions/6852763/vim-quickfix-list-launch-files-in-new-tab
 set switchbuf+=newtab,usetab
+
+" Persistent undo
+set undodir=$HOME/.vim/.undodir
+set undofile

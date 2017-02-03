@@ -6,12 +6,17 @@ Plug 'tomasr/molokai'
 " edit plugin
 Plug 'tpope/vim-surround'
 Plug 'mattn/emmet-vim'
+Plug 'svermeulen/vim-easyclip'
+Plug 'tpope/vim-repeat'
 
 " search plugin
 Plug 'mileszs/ack.vim'
 
 " cscope maps
 Plug 'chazy/cscope_maps'
+
+" quickfix window
+Plug 'tpope/vim-unimpaired'
 
 " syntax
 Plug 'ekalinin/Dockerfile.vim'
