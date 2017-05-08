@@ -6,7 +6,7 @@ Plug 'tomasr/molokai'
 " edit plugin
 Plug 'tpope/vim-surround'
 Plug 'mattn/emmet-vim'
-Plug 'svermeulen/vim-easyclip'
+Plug 'vim-scripts/YankRing.vim'
 Plug 'tpope/vim-repeat'
 
 " search plugin
@@ -18,11 +18,14 @@ Plug 'chazy/cscope_maps'
 " quickfix window
 Plug 'tpope/vim-unimpaired'
 
+" python
+Plug 'jmcantrell/vim-virtualenv'
+
 " syntax
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoInstallBinaries' }
 Plug 'tpope/vim-speeddating'
-Plug 'chase/vim-ansible-yaml'
+Plug 'pearofducks/ansible-vim'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Tagbar'
