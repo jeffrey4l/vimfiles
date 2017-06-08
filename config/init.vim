@@ -45,6 +45,7 @@ Plug 'honza/vim-snippets'
 
 Plug 'fholgado/minibufexpl.vim'
 
+" git wrapper
 Plug 'tpope/vim-fugitive'
 
 Plug 'toggle_mouse'

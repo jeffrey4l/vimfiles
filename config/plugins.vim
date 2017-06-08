@@ -76,6 +76,9 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:ycm_python_binary_path = '/usr/sbin/python'
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_auto_trigger = 1
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
