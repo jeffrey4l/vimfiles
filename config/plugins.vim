@@ -88,3 +88,8 @@ noremap bn :MBEbn<CR>
 noremap bp :MBEbp<CR>
 noremap bd :bd<CR>
 let g:miniBufExplCycleArround = 1
+
+""""""""""""""""""
+" MatchTagAlways "
+""""""""""""""""""
+nnoremap <leader>% :MtaJumpToOtherTag<cr>

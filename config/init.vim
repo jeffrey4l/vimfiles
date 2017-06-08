@@ -8,6 +8,7 @@ Plug 'tpope/vim-surround'
 Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'tpope/vim-repeat'
+Plug 'Valloric/MatchTagAlways'
 
 " search plugin
 Plug 'mileszs/ack.vim'
