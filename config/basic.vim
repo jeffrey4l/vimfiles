@@ -78,3 +78,4 @@ set switchbuf+=newtab,usetab
 " Persistent undo
 set undodir=$HOME/.vim/.undodir
 set undofile
+
