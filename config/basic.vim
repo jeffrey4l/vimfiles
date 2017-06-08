@@ -17,6 +17,8 @@ set cindent
 set autoindent
 set smartindent
 
+autocmd BufRead,BufNewFile *.html setl shiftwidth=2 softtabstop=2 expandtab
+
 set t_Co=256
 
 set fileencodings=utf-8,ucs-bom,gbk,gb2312,gb18030,cp936 "set gvim to show chinese
