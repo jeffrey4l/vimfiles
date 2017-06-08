@@ -1,8 +1,8 @@
-# Require
+# Requirements
 
-* YouCompleteMe require Vim 7.4.1578+
+* Vim 7.4.1578+ (required by YouCompleteMe)
 * [the_silver_searcher](https://github.com/ggreer/the_silver_searcher)
-* ctag
+* ctags
 
 # Installation
 
