@@ -11,4 +11,8 @@ git clone git@github.com:jeffrey4l/vimfiles.git ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
 cd ~/.vim
 make
+
+# install YouCompleteMe
+cd ~/.vim/plugged/YouCompleteMe/
+python install.py
 ```
