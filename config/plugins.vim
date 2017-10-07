@@ -48,7 +48,11 @@ let NERDTreeWinSize = 21		" Sets the window size when the NERD tree is opened.
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 "nmap <F3> :NERDTreeToggle<CR> :NERDTreeMirror<CR>
-nmap <F3> :NERDTreeToggle<CR>
+nmap <F3> :NERDTreeMirrorToggle<CR>
+
+let g:nerdtree_tabs_focus_on_files = 0
+let g:nerdtree_tabs_open_on_console_startup = 1
+let g:nerdtree_tabs_autofind = 1
 
 
 """""""""
@@ -76,7 +80,7 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:SuperTabDefaultCompletionType = '<C-n>'
-let g:ycm_python_binary_path = '/usr/sbin/python'
+let g:ycm_python_binary_path = '/usr/bin/python2'
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_auto_trigger = 1
 
