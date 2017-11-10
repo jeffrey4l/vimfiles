@@ -28,7 +28,7 @@ Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoInstallBinaries' }
 Plug 'tpope/vim-speeddating'
 Plug 'pearofducks/ansible-vim'
 
-Plug 'scrooloose/nerdtree' ", { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'Tagbar'
 
@@ -48,6 +48,7 @@ Plug 'honza/vim-snippets'
 
 " git wrapper
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 
 Plug 'toggle_mouse'
 
