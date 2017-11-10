@@ -89,13 +89,6 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
-" minibufexpl.vim
-map <F2> :MBEToggle<CR>
-noremap bn :MBEbn<CR>
-noremap bp :MBEbp<CR>
-noremap bd :bd<CR>
-let g:miniBufExplCycleArround = 1
-
 """"""""""""""""""
 " MatchTagAlways "
 """"""""""""""""""

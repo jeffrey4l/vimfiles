@@ -44,7 +44,7 @@ Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-Plug 'fholgado/minibufexpl.vim'
+"Plug 'fholgado/minibufexpl.vim'
 
 " git wrapper
 Plug 'tpope/vim-fugitive'
