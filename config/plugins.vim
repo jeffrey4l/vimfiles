@@ -1,3 +1,7 @@
+"YankRing
+
+let g:yankring_history_dir = '$HOME/.vim/'
+
 """"""""""""""""
 " Tagbar plugin
 """"""""""""""""
@@ -11,13 +15,21 @@ let g:ale_lint_on_text_changed = 0
 " You can disable this option too
 " if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 0
+nmap <silent> <leader>aj :ALENext<cr>
+nmap <silent> <leader>ak :ALEPrevious<cr>
 
+let g:ale_fixers = {
+\  'javascript': ['eslint'],
+\  'python': ['autopep8', 'yapf']  
+\}
 
 """""""""""
 " Ack.vim "
 """""""""""
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep'
+elseif executable('ag')
+  let g:ackprg = 'ag -a --vimgrep'
 endif
 nnoremap <Leader>a :Ack<space>
 
@@ -39,7 +51,7 @@ let g:nerdtree_tabs_autofind = 0
 """""""""
 " CtrlP "
 """""""""
-let g:ctrlp_map = '<leader>f'
+let g:ctrlp_map = '<leader>g'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = {
     \ 'dir': '\.git$\|\.svn$|\.tox$',
@@ -48,6 +60,8 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_switch_buffer = 'Et'
 let g:ctrlp_show_hidden = 1
 map <leader>b :CtrlPBuffer<CR>
+
+map <leader>f :FZF<CR>
 
 """"""""""""""""""""
 " Vim Ansible YAML "
@@ -75,3 +89,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 " MatchTagAlways "
 """"""""""""""""""
 nnoremap <leader>% :MtaJumpToOtherTag<cr>
+
+" nerd comment
+let NERDRemoveExtraSpaces=1
+let NERDSpaceDelims=1

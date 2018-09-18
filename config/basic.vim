@@ -18,6 +18,8 @@ set autoindent
 set smartindent
 
 autocmd BufRead,BufNewFile *.html setl shiftwidth=2 softtabstop=2 expandtab
+autocmd BufRead,BufNewFile *.yml setl shiftwidth=2 softtabstop=2 expandtab
+autocmd BufRead,BufNewFile *.yaml setl shiftwidth=2 softtabstop=2 expandtab
 
 set t_Co=256
 
@@ -76,6 +78,5 @@ set history=1000
 set switchbuf+=newtab,usetab
 
 " Persistent undo
-set undodir=$HOME/.vim/.undodir
+set undodir=$HOME/.vim.cache/undo
 set undofile
-
