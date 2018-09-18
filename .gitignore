@@ -1,7 +1,8 @@
-.*.sw[a-z]
-.undodir/*
 *.un~
+.*.sw[a-z]
+.netrwhist
+.undodir/*
 Session.vim
 bundle
 plugged
-.netrwhist
+yankring_history_v2.txt
