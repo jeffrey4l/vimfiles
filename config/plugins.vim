@@ -36,13 +36,19 @@ nnoremap <Leader>a :Ack<space>
 """"""""""""""""""""""""""""
 " NERD_tree
 """"""""""""""""""""""""""""""
-"let loaded_nerd_tree=1
 let NERDTreeIgnore= ['\~$','.*\.pyc','.*\.pyo', '^tags$', 'cscope', 
                     \ '.*\.egg-info$', '.*\.egg$', '__pycache__']
 let NERDTreeMinimalUI=1
 
 nmap <F2> :NERDTreeTabsFind<CR>
 nmap <F3> :NERDTreeTabsToggle<CR>
+if has('gui_running')
+  let g:NERDTreeHijackNetrw=0
+  " vim-nerdtree-tags plugin
+  let g:nerdtree_tabs_open_on_gui_startup=0
+else
+  let g:NERDTreeHijackNetrw=1
+endif
 let g:nerdtree_tabs_focus_on_files = 1
 let g:nerdtree_tabs_open_on_console_startup = 2
 let g:nerdtree_tabs_autofind = 0
