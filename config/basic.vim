@@ -78,5 +78,15 @@ set history=1000
 set switchbuf+=newtab,usetab
 
 " Persistent undo
-set undodir=$HOME/.vim.cache/undo
-set undofile
+" Use following command to clear old undofile
+"   find ~/.vim.cache/undo -type f -mtime +90 -delete
+if has('persistent_undo')
+    if !isdirectory($HOME."/.vim.cache")
+        call mkdir($HOME."/.vim.cache", "", 0770)
+    endif
+    if !isdirectory($HOME."/.vim.cache/undo")
+        call mkdir($HOME."/.vim.cache/undo", "", 0700)
+    endif
+    set undodir=$HOME/.vim.cache/undo
+    set undofile
+endif
