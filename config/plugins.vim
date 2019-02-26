@@ -8,20 +8,34 @@ let g:yankring_history_dir = '$HOME/.vim/'
 map <F4> :TagbarToggle<CR>
 let g:tagbar_width=30
 
-" ale
-" Write this in your vimrc file
+""""""""""
+" vim-go "
+""""""""""
+let g:go_fmt_fail_silently = 1
+let g:go_fmt_command = "goimports"
+
+"""""""
+" ale "
+"""""""
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
-" You can disable this option too
-" if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 0
 nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
+
+let g:ale_linters = {
+\  'go': ['gofmt', 'gometalinter'],
+\  'python': ['pyls'],
+\ }
 
 let g:ale_fixers = {
 \  'javascript': ['eslint'],
 \  'python': ['autopep8', 'yapf']  
 \}
+
+let g:ale_completion_enabled = 0
+let g:ale_python_pyls_use_global = 1
+let g:ale_go_langserver_executable = $HOME.'/.golang/bin/go-langserver'
 
 """""""""""
 " Ack.vim "
@@ -85,6 +99,7 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:ycm_python_binary_path = '/usr/bin/python2'
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_auto_trigger = 1
+let g:ycm_log_level = 'debug'
 
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -99,3 +114,4 @@ nnoremap <leader>% :MtaJumpToOtherTag<cr>
 " nerd comment
 let NERDRemoveExtraSpaces=1
 let NERDSpaceDelims=1
+

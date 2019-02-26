@@ -92,3 +92,5 @@ if has('persistent_undo')
     set undodir=$HOME/.vim.cache/undo
     set undofile
 endif
+
+map <Leader>s <Esc>:!aspell -c --dont-backup %<CR>:e! %<CR><CR>

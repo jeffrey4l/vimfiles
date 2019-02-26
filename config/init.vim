@@ -52,9 +52,12 @@ Plug 'honza/vim-snippets'
 
 " git wrapper
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rhubarb'
 
 Plug 'vim-scripts/toggle_mouse'
-Plug 'rhysd/clever-f.vim'
+"Plug 'rhysd/clever-f.vim'
+
+"Plug 'lilydjwg/fcitx.vim'
 
 call plug#end()
