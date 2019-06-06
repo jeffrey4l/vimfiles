@@ -30,10 +30,12 @@ Plug 'tpope/vim-speeddating'
 Plug 'pearofducks/ansible-vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'posva/vim-vue'
 
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'vim-scripts/Tagbar'
+Plug 'majutsushi/tagbar'
+Plug 'lvht/tagbar-markdown'
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer' }
 Plug 'vim-scripts/The-NERD-Commenter'

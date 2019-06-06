@@ -24,9 +24,12 @@ nmap <silent> <leader>aj :ALENext<cr>
 nmap <silent> <leader>ak :ALEPrevious<cr>
 
 let g:ale_linters = {
-\  'go': ['gofmt', 'gometalinter'],
-\  'python': ['pyls'],
+\  'go': ['gofmt', 'golangci-lint'],
+\  'python': ['pyflakes', 'pycodestyle', 'flake8'],
 \ }
+
+let g:ale_go_golangci_lint_options = '--fast'
+let g:ale_go_gometalinter_options = '--fast'
 
 let g:ale_fixers = {
 \  'javascript': ['eslint'],
@@ -36,6 +39,18 @@ let g:ale_fixers = {
 let g:ale_completion_enabled = 0
 let g:ale_python_pyls_use_global = 1
 let g:ale_go_langserver_executable = $HOME.'/.golang/bin/go-langserver'
+
+let g:ale_python_pyls_config = {
+\   'pyls': {
+\     'plugins': {
+\       'pydocstyle': {
+\         'enabled': v:false
+\       }
+\     }
+\   },
+\ }
+
+let g:ale_yaml_yamllint_options = '-c '.$HOME.'/.config/yamllint/config'
 
 """""""""""
 " Ack.vim "
@@ -86,8 +101,7 @@ map <leader>f :FZF<CR>
 """"""""""""""""""""
 " Vim Ansible YAML "
 """"""""""""""""""""
-autocmd BufRead,BufNewFile *.yaml set filetype=ansible
-autocmd BufRead,BufNewFile *.yaml set filetype=ansible
+autocmd BufRead,BufNewFile *.yaml set filetype=yaml.ansible
 
 
 " make YCM compatible with UltiSnips (using supertab)
