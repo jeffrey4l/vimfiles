@@ -4,10 +4,11 @@
 * [the_silver_searcher](https://github.com/ggreer/the_silver_searcher)
 * ctags
 * cscope
+* powerline-fonts
 
 # Installation
 
-    git clone git@github.com:jeffrey4l/vimfiles.git ~/.vim
+    git clone https://github.com/jeffrey4l/vimfiles.git ~/.vim
     ln -s ~/.vim/vimrc ~/.vimrc
     cd ~/.vim
     make
@@ -18,4 +19,4 @@
 
 # Install for Archlinux
 
-    pacman -S ctags the_silver_searcher cscope
+    pacman -S ctags the_silver_searcher cscope powerline-fonts
