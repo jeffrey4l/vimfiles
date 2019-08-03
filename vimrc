@@ -4,3 +4,4 @@ source $HOME/.vim/config/30-plugins-config.vim
 
 source $HOME/.vim/config/80-fcitx.vim
 source $HOME/.vim/config/80-python.vim
+source $HOME/.vim/config/80-binary-file.vim
