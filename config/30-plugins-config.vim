@@ -138,7 +138,7 @@ nnoremap <Leader>a :Ack<space>
 " NERD_tree
 """"""""""""""""""""""""""""""
 let NERDTreeIgnore= ['\~$','.*\.pyc','.*\.pyo', '^tags$', 'cscope', 
-                    \ '.*\.egg-info$', '.*\.egg$', '__pycache__']
+                    \ '__pycache__']
 let NERDTreeMinimalUI=1
 
 nmap <F2> :NERDTreeTabsFind<CR>
