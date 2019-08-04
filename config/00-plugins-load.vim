@@ -37,7 +37,10 @@ Plug 'posva/vim-vue'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'majutsushi/tagbar'
-Plug 'lvht/tagbar-markdown'
+
+" markdown
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer' }
 Plug 'vim-scripts/The-NERD-Commenter'
