@@ -16,6 +16,7 @@ set softtabstop=4
 set cindent
 set autoindent
 set smartindent
+set title
 
 autocmd BufRead,BufNewFile *.html setl shiftwidth=2 softtabstop=2 expandtab
 autocmd BufRead,BufNewFile *.yml setl shiftwidth=2 softtabstop=2 expandtab
@@ -24,6 +25,8 @@ autocmd BufRead,BufNewFile *.yaml setl shiftwidth=2 softtabstop=2 expandtab
 set foldmethod=manual
 set nofoldenable
 set t_Co=256
+
+set formatoptions+=Mm
 
 set fileencodings=utf-8,ucs-bom,gbk,gb2312,gb18030,cp936 "set gvim to show chinese
 set encoding=utf-8
