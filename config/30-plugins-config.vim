@@ -1,3 +1,6 @@
+" vim pandoc
+let g:pandoc#spell#enabled=0
+let g:pandoc#filetypes#pandoc_markdown=0
 "YankRing
 
 let g:yankring_history_dir = '$HOME/.vim/'
