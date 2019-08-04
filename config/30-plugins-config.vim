@@ -8,6 +8,75 @@ let g:yankring_history_dir = '$HOME/.vim/'
 map <F4> :TagbarToggle<CR>
 let g:tagbar_width=30
 
+let g:tagbar_type_ansible = {
+	\ 'ctagstype' : 'ansible',
+	\ 'kinds' : [
+		\ 't:tasks'
+	\ ],
+	\ 'sort' : 0
+\ }
+let g:tagbar_type_yaml = {
+	\ 'ctagstype' : 'ansible',
+	\ 'kinds' : [
+		\ 't:tasks'
+	\ ],
+	\ 'sort' : 0
+\ }
+
+let g:tagbar_type_puppet = {
+    \ 'ctagstype': 'puppet',
+    \ 'kinds': [
+        \ 'c:class',
+        \ 's:site',
+        \ 'n:node',
+        \ 'd:definition'
+      \ ]
+    \ }
+
+let g:tagbar_type_terraform = {
+    \ 'ctagstype' : 'terraform',
+    \ 'kinds' : [
+        \ 'r:resources',
+        \ 'm:modules',
+        \ 'o:outputs',
+        \ 'v:variables',
+        \ 'f:tfvars'
+    \ ],
+    \ 'sort' : 0
+    \ }
+
+let g:tagbar_type_dosini = {
+    \ 'ctagstype' : 'iniconf',
+    \ 'kinds' : [
+        \ 's:sections',
+        \ 'k:keys'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope': {
+        \ 's' : 'section'
+    \ },
+    \ 'sort' : 0
+    \ }
+
+" Depends on https://github.com/jszakmeister/markdown2ctags
+" can install by 
+"
+"   yaourt -S markdown2ctags
+let g:tagbar_type_markdown = {
+    \ 'ctagstype': 'markdown',
+    \ 'ctagsbin' : '/usr/bin/markdown2ctags',
+    \ 'ctagsargs' : '-f - --sort=yes --sro=»',
+    \ 'kinds' : [
+        \ 's:sections',
+        \ 'i:images'
+    \ ],
+    \ 'sro' : '»',
+    \ 'kind2scope' : {
+        \ 's' : 'section',
+    \ },
+    \ 'sort': 0,
+\ }
+
 """"""""""
 " vim-go "
 """"""""""
@@ -95,8 +164,16 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_switch_buffer = 'Et'
 let g:ctrlp_show_hidden = 1
 map <leader>b :CtrlPBuffer<CR>
+map <leader>t :CtrlPBufTag<CR>
 
 map <leader>f :FZF<CR>
+
+let g:ctrlp_buftag_types = {
+  \ 'yaml': '--languages=ansible --ansible-types=t',
+  \ 'make': '--languages=make --make-types=tm',
+  \ 'markdown': '--language-force=markdown --markdown-types=csStTu',
+  \ 'dosini': '--language-force=iniconf --iniconf-types=sk'
+  \ }
 
 """"""""""""""""""""
 " Vim Ansible YAML "

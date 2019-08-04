@@ -5,6 +5,7 @@
 * ctags
 * cscope
 * powerline-fonts
+* [markdown2ctags](https://github.com/jszakmeister/markdown2ctags)
 
 # Installation
 
@@ -20,3 +21,4 @@
 # Install for Archlinux
 
     pacman -S ctags the_silver_searcher cscope powerline-fonts
+    yaourt -S markdown2ctags
