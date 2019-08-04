@@ -24,6 +24,8 @@ Plug 'jmcantrell/vim-virtualenv'
 
 " syntax
 Plug 'ekalinin/Dockerfile.vim'
+Plug 'rodjek/vim-puppet'
+
 "Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoInstallBinaries' }
 Plug 'fatih/vim-go'
 Plug 'tpope/vim-speeddating'
