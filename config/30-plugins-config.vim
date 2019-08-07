@@ -61,6 +61,25 @@ let g:tagbar_type_dosini = {
     \ 'sort' : 0
     \ }
 
+let g:tagbar_type_rst = {
+    \ 'ctagstype' : 'ReStructuredText',
+    \ 'kinds' : [
+        \ 'c:chapters',
+        \ 's:sections',
+        \ 'S:subsections',
+        \ 't:subsubsections',
+        \ 'T:targets'
+    \ ],
+    \ 'sro' : '»',
+    \ 'kind2scope': {
+        \ 'c' : 'chapter',
+        \ 's' : 'section',
+        \ 'S' : 'subsection',
+        \ 't' : 'subsubsection'
+    \ },
+    \ 'sort' : 0
+    \ }
+
 " Depends on https://github.com/jszakmeister/markdown2ctags
 " can install by 
 "
@@ -154,7 +173,6 @@ let g:nerdtree_tabs_focus_on_files = 1
 let g:nerdtree_tabs_open_on_console_startup = 2
 let g:nerdtree_tabs_autofind = 0
 
-
 """""""""
 " CtrlP "
 """""""""
@@ -190,7 +208,7 @@ let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:ycm_add_preview_to_completeopt = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:SuperTabDefaultCompletionType = '<C-n>'
-let g:ycm_python_binary_path = '/usr/bin/python2'
+let g:ycm_python_binary_path = 'python'
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_auto_trigger = 1
 let g:ycm_log_level = 'debug'
