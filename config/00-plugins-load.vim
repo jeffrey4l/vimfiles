@@ -9,6 +9,7 @@ Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'tpope/vim-repeat'
 Plug 'Valloric/MatchTagAlways'
+Plug 'frazrepo/vim-rainbow'
 
 " search plugin
 Plug 'mileszs/ack.vim'
@@ -34,15 +35,19 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'posva/vim-vue'
 
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeTabsToggle' }
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+"Plug 'liuchengxu/vista.vim'
 
 " markdown
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer' }
+" auto complete
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer' }
+"Plug 'zxqfl/tabnine-vim'
+
 Plug 'vim-scripts/The-NERD-Commenter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
@@ -51,7 +56,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'w0rp/ale'
 Plug 'rhysd/vim-grammarous'
 
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
@@ -65,6 +70,13 @@ Plug 'tpope/vim-rhubarb'
 Plug 'vim-scripts/toggle_mouse'
 "Plug 'rhysd/clever-f.vim'
 
-"Plug 'lilydjwg/fcitx.vim'
+" vim lsp
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete-file.vim'
+" Plug 'prabirshrestha/asyncomplete-gocode.vim'
+Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
 
 call plug#end()

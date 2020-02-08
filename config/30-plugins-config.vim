@@ -1,8 +1,8 @@
 " vim pandoc
 let g:pandoc#spell#enabled=0
 let g:pandoc#filetypes#pandoc_markdown=0
-"YankRing
 
+"YankRing
 let g:yankring_history_dir = '$HOME/.vim/'
 
 """"""""""""""""
@@ -61,6 +61,8 @@ let g:tagbar_type_dosini = {
     \ 'sort' : 0
     \ }
 
+let g:tagbar_type_conf = g:tagbar_type_dosini
+
 let g:tagbar_type_rst = {
     \ 'ctagstype' : 'ReStructuredText',
     \ 'kinds' : [
@@ -99,6 +101,34 @@ let g:tagbar_type_markdown = {
     \ 'sort': 0,
 \ }
 
+let g:tagbar_type_go = {
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
+		\ 'p:package',
+		\ 'i:imports:1',
+		\ 'c:constants',
+		\ 'v:variables',
+		\ 't:types',
+		\ 'n:interfaces',
+		\ 'w:fields',
+		\ 'e:embedded',
+		\ 'm:methods',
+		\ 'r:constructor',
+		\ 'f:functions'
+	\ ],
+	\ 'sro' : '.',
+	\ 'kind2scope' : {
+		\ 't' : 'ctype',
+		\ 'n' : 'ntype'
+	\ },
+	\ 'scope2kind' : {
+		\ 'ctype' : 't',
+		\ 'ntype' : 'n'
+	\ },
+	\ 'ctagsbin'  : 'gotags',
+	\ 'ctagsargs' : '-sort -silent'
+\ }
+
 """"""""""
 " vim-go "
 """"""""""
@@ -120,11 +150,11 @@ let g:ale_linters = {
 \ }
 
 let g:ale_go_golangci_lint_options = '--fast'
-let g:ale_go_gometalinter_options = '--fast'
+let g:ale_go_golangci_lint_package = 1
 
 let g:ale_fixers = {
 \  'javascript': ['eslint'],
-\  'python': ['autopep8', 'yapf']  
+\  'python': ['autopep8', 'yapf']
 \}
 
 let g:ale_completion_enabled = 0
@@ -193,7 +223,8 @@ let g:ctrlp_buftag_types = {
   \ 'yaml': '--languages=ansible --ansible-types=t',
   \ 'make': '--languages=make --make-types=tm',
   \ 'markdown': '--language-force=markdown --markdown-types=csStTu',
-  \ 'dosini': '--language-force=iniconf --iniconf-types=sk'
+  \ 'dosini': '--language-force=iniconf --iniconf-types=sk',
+  \ 'go': '--language-force=go --go-types=fct'
   \ }
 
 """"""""""""""""""""
@@ -226,12 +257,3 @@ nnoremap <leader>% :MtaJumpToOtherTag<cr>
 " nerd comment
 let NERDRemoveExtraSpaces=1
 let NERDSpaceDelims=1
-
-"""""""""""""""
-" vim airline "
-"""""""""""""""
-" vim aireline requests powerline-fonts
-let g:airline#extensions#virtualenv#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#ycm#enabled = 1
-let g:airline#extensions#ale#enabled = 1
