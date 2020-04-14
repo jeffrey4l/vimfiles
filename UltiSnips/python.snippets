@@ -1,0 +1,13 @@
+priority 1
+snippet code
+# -*- coding:utf-8 -*-
+endsnippet
+
+snippet log
+LOG = logging.getLogger(__name__)
+endsnippet
+
+snippet def
+def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
+	${0}
+endsnippet
