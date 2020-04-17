@@ -26,7 +26,7 @@ set foldmethod=marker
 set nofoldenable
 set t_Co=256
 
-set formatoptions+=Mm
+set formatoptions+=Bm
 
 set fileencodings=utf-8,ucs-bom,gbk,gb2312,gb18030,cp936 "set gvim to show chinese
 set encoding=utf-8
