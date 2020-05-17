@@ -1,0 +1,24 @@
+{
+    "yank.highlight.enable": false,
+    "yaml.completion": true,
+    "yaml.format.enable": true,
+    "yaml.schemas": {
+        "http://json.schemastore.org/ansible-stable-2.9": "config.yml"
+    },
+    "languageserver": {
+        "ccls" : {
+            "command": "ccls",
+            "filetypes": [
+                "c",
+                "cpp",
+                "objc",
+                "objcpp"
+            ],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                }
+            }
+        }
+    }
+}

@@ -69,14 +69,11 @@ Plug 'tpope/vim-rhubarb'
 
 Plug 'vim-scripts/toggle_mouse'
 "Plug 'rhysd/clever-f.vim'
+":qq
+"
 
-" vim lsp
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/asyncomplete-file.vim'
-" Plug 'prabirshrestha/asyncomplete-gocode.vim'
-Plug 'prabirshrestha/asyncomplete-ultisnips.vim'
+" lanuage server
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-python', {'tag': '1.1.9', 'do': 'yarn install --frozen-lockfile'}
 
 call plug#end()
