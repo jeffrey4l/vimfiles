@@ -36,6 +36,20 @@ let g:tagbar_type_puppet = {
       \ ]
     \ }
 
+let g:tagbar_type_typescript = {
+  \ 'ctagstype': 'typescript',
+  \ 'kinds': [
+    \ 'c:classes',
+    \ 'n:modules',
+    \ 'f:functions',
+    \ 'v:variables',
+    \ 'v:varlambdas',
+    \ 'm:members',
+    \ 'i:interfaces',
+    \ 'e:enums',
+  \ ]
+\ }
+
 let g:tagbar_type_terraform = {
     \ 'ctagstype' : 'terraform',
     \ 'kinds' : [
@@ -186,7 +200,7 @@ nnoremap <Leader>a :Ack<space>
 """"""""""""""""""""""""""""
 " NERD_tree
 """"""""""""""""""""""""""""""
-let NERDTreeIgnore= ['\~$','.*\.pyc','.*\.pyo', '^tags$', 'cscope', 
+let NERDTreeIgnore= ['\~$','.*\.pyc','.*\.pyo', '^tags$', 'cscope',
                     \ '__pycache__']
 let NERDTreeMinimalUI=1
 

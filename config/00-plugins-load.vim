@@ -69,11 +69,10 @@ Plug 'tpope/vim-rhubarb'
 
 Plug 'vim-scripts/toggle_mouse'
 "Plug 'rhysd/clever-f.vim'
-":qq
 "
 
 " lanuage server
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-python', {'tag': '1.1.9', 'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
 
 call plug#end()

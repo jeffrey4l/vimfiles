@@ -21,6 +21,7 @@ set title
 autocmd BufRead,BufNewFile *.html setl shiftwidth=2 softtabstop=2 expandtab
 autocmd BufRead,BufNewFile *.yml setl shiftwidth=2 softtabstop=2 expandtab
 autocmd BufRead,BufNewFile *.yaml setl shiftwidth=2 softtabstop=2 expandtab
+autocmd BufRead,BufNewFile *.ts setl shiftwidth=2 softtabstop=2 expandtab
 
 set foldmethod=marker
 set nofoldenable
@@ -110,9 +111,11 @@ endif
 map <Leader>s <Esc>:!aspell -c --dont-backup %<CR>:e! %<CR><CR>
 
 " Highlight tail spaces
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
+if ! &diff
+    highlight ExtraWhitespace ctermbg=red guibg=red
+    match ExtraWhitespace /\s\+$/
+    autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+    autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+    autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+    autocmd BufWinLeave * call clearmatches()
+endif
