@@ -26,6 +26,9 @@ Plug 'jmcantrell/vim-virtualenv'
 " syntax
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'rodjek/vim-puppet'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'posva/vim-vue'
+Plug 'google/vim-jsonnet'
 
 "Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoInstallBinaries' }
 Plug 'fatih/vim-go'
