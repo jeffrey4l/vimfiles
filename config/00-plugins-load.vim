@@ -13,6 +13,7 @@ Plug 'frazrepo/vim-rainbow'
 
 " search plugin
 Plug 'mileszs/ack.vim'
+Plug 'jremmen/vim-ripgrep'
 
 " cscope maps
 Plug 'chazy/cscope_maps'
@@ -41,7 +42,6 @@ Plug 'posva/vim-vue'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeTabsToggle' }
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-"Plug 'liuchengxu/vista.vim'
 
 " markdown
 Plug 'vim-pandoc/vim-pandoc'
@@ -54,6 +54,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-scripts/The-NERD-Commenter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'junegunn/fzf.vim'
 
 " syntax check
 Plug 'w0rp/ale'

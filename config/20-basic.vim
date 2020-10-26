@@ -22,6 +22,8 @@ autocmd BufRead,BufNewFile *.html setl shiftwidth=2 softtabstop=2 expandtab
 autocmd BufRead,BufNewFile *.yml setl shiftwidth=2 softtabstop=2 expandtab
 autocmd BufRead,BufNewFile *.yaml setl shiftwidth=2 softtabstop=2 expandtab
 autocmd BufRead,BufNewFile *.ts setl shiftwidth=2 softtabstop=2 expandtab
+autocmd BufRead,BufNewFile *.js setl shiftwidth=2 softtabstop=2 expandtab
+autocmd BufRead,BufNewFile *.vue setl shiftwidth=2 softtabstop=2 expandtab
 
 set foldmethod=marker
 set nofoldenable

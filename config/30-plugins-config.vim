@@ -196,6 +196,10 @@ elseif executable('ag')
   let g:ackprg = 'ag -a --vimgrep'
 endif
 nnoremap <Leader>a :Ack<space>
+"""""""""""""""
+" vim-ripgrep "
+"""""""""""""""
+let g:rg_highlight='true'
 
 """"""""""""""""""""""""""""
 " NERD_tree
@@ -231,8 +235,6 @@ let g:ctrlp_show_hidden = 1
 map <leader>b :CtrlPBuffer<CR>
 map <leader>t :CtrlPBufTag<CR>
 
-map <leader>f :FZF<CR>
-
 let g:ctrlp_buftag_types = {
   \ 'yaml': '--languages=ansible --ansible-types=t',
   \ 'make': '--languages=make --make-types=tm',
@@ -240,6 +242,12 @@ let g:ctrlp_buftag_types = {
   \ 'dosini': '--language-force=iniconf --iniconf-types=sk',
   \ 'go': '--language-force=go --go-types=fct'
   \ }
+
+"""""""""""
+" FZF.vim "
+"""""""""""
+map <leader>f :Files<CR>
+let g:fzf_layout = { 'window': 'enew' }
 
 """"""""""""""""""""
 " Vim Ansible YAML "
