@@ -3,7 +3,7 @@
     "yaml.completion": true,
     "yaml.format.enable": true,
     "yaml.schemas": {
-        "http://json.schemastore.org/ansible-stable-2.9": "config.yml"
+        "https://json.schemastore.org/ansible-playbook": "config.yml"
     },
     "languageserver": {
         "ccls" : {

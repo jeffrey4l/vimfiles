@@ -1,5 +1,4 @@
 call plug#begin('~/.vim/plugged')
-
 " colorschema
 Plug 'tomasr/molokai'
 
@@ -30,13 +29,15 @@ Plug 'rodjek/vim-puppet'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'posva/vim-vue'
 Plug 'google/vim-jsonnet'
+Plug 'jparise/vim-graphql'
+Plug 'cespare/vim-toml'
+Plug 'Glench/Vim-Jinja2-Syntax'
 
 "Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoInstallBinaries' }
 Plug 'fatih/vim-go'
 Plug 'tpope/vim-speeddating'
 Plug 'pearofducks/ansible-vim'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'posva/vim-vue'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeTabsToggle' }

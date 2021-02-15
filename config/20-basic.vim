@@ -10,20 +10,15 @@ set incsearch
 set ignorecase
 
 set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set cindent
 set autoindent
 set smartindent
 set title
 
-autocmd BufRead,BufNewFile *.html setl shiftwidth=2 softtabstop=2 expandtab
-autocmd BufRead,BufNewFile *.yml setl shiftwidth=2 softtabstop=2 expandtab
-autocmd BufRead,BufNewFile *.yaml setl shiftwidth=2 softtabstop=2 expandtab
-autocmd BufRead,BufNewFile *.ts setl shiftwidth=2 softtabstop=2 expandtab
-autocmd BufRead,BufNewFile *.js setl shiftwidth=2 softtabstop=2 expandtab
-autocmd BufRead,BufNewFile *.vue setl shiftwidth=2 softtabstop=2 expandtab
+autocmd BufRead,BufNewFile *.py setl shiftwidth=4 softtabstop=4
 
 set foldmethod=marker
 set nofoldenable
@@ -31,7 +26,8 @@ set t_Co=256
 
 set formatoptions+=Bm
 
-set fileencodings=utf-8,ucs-bom,gbk,gb2312,gb18030,cp936 "set gvim to show chinese
+" set gvim to show chinese
+set fileencodings=utf-8,ucs-bom,gbk,gb2312,gb18030,cp936
 set encoding=utf-8
 
 colorscheme molokai
@@ -52,9 +48,11 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-h> <C-w>h
 map <C-l> <C-w>l
+
 if has('nvim')
  nmap <BS> <C-W>h
 endif
+
 map tc :tabclose<CR>
 map tn :tabnew<CR>
 map tt :tab split<CR>
@@ -78,10 +76,17 @@ nnoremap k gk
 vmap k gk
 
 " sudo write
-command W w !sudo tee % > /dev/null
+if has('nvim')
+    " copied from https://vi.stackexchange.com/a/25038
+    " requires
+    "   export SUDO_ASKPASS='/usr/lib/ssh/x11-ssh-askpass'
+    com -bar W exe 'w !sudo tee >/dev/null %:p:S' | setl nomod
+else
+    command W w !sudo tee % > /dev/null
+endif
 
 " gvim
-set guifont=Ubuntu\ Mono\ 18
+set guifont=JetBrains\ Mono\ NL\ 18
 set go-=mTr
 
 set selection=exclusive
@@ -98,15 +103,9 @@ set switchbuf+=newtab,usetab
 
 " Persistent undo
 " Use following command to clear old undofile
-"   find ~/.vim.cache/undo -type f -mtime +90 -delete
+"   find ~/.vim/.undodir -type f -mtime +90 -delete
 if has('persistent_undo')
-    if !isdirectory($HOME."/.vim.cache")
-        call mkdir($HOME."/.vim.cache", "", 0770)
-    endif
-    if !isdirectory($HOME."/.vim.cache/undo")
-        call mkdir($HOME."/.vim.cache/undo", "", 0700)
-    endif
-    set undodir=$HOME/.vim.cache/undo
+    set undodir=$HOME/.vim/.undodir
     set undofile
 endif
 
