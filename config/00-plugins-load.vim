@@ -24,14 +24,16 @@ Plug 'tpope/vim-unimpaired'
 Plug 'jmcantrell/vim-virtualenv'
 
 " syntax
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'rodjek/vim-puppet'
-Plug 'jelera/vim-javascript-syntax'
-Plug 'posva/vim-vue'
-Plug 'google/vim-jsonnet'
-Plug 'jparise/vim-graphql'
-Plug 'cespare/vim-toml'
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'cespare/vim-toml'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'google/vim-jsonnet'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'jparise/vim-graphql'
+Plug 'posva/vim-vue'
+Plug 'rafael84/vim-wsd'
+Plug 'rodjek/vim-puppet'
+Plug 'sukima/vim-tiddlywiki'
 
 "Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoInstallBinaries' }
 Plug 'fatih/vim-go'

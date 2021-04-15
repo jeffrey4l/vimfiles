@@ -18,6 +18,9 @@ set autoindent
 set smartindent
 set title
 
+" Disable swap file
+set noswapfile
+
 autocmd BufRead,BufNewFile *.py setl shiftwidth=4 softtabstop=4
 
 set foldmethod=marker
