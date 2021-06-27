@@ -1,3 +1,9 @@
+" Usage
+"
+"   curl -L https://raw.githubusercontent.com/jeffrey4l/vimfiles/litter/vimrc -o ~/.vimrc
+"
+"   curl -L https://raw.githubusercontent.com/jeffrey4l/vimfiles/litter/vimrc -o ~/.config/nvim/init.vim
+
 " Basic
 set nocompatible
 
