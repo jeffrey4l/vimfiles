@@ -71,5 +71,27 @@ set errorbells
 set t_vb=
 let mapleader = ","
 set paste
-" sudo write
-command W w !sudo tee % > /dev/null
+
+""""""""""""""
+" sudo write "
+""""""""""""""
+if has('nvim')
+    " copied from https://vi.stackexchange.com/a/25038
+    " requires
+    "   export SUDO_ASKPASS='/usr/lib/ssh/x11-ssh-askpass'
+    com -bar W exe 'w !sudo tee >/dev/null %:p:S' | setl nomod
+else
+    command W w !sudo tee % > /dev/null
+endif
+
+"""""""""""""""""""""""""
+" Highlight tail spaces "
+"""""""""""""""""""""""""
+if ! &diff
+    highlight ExtraWhitespace ctermbg=red guibg=red
+    match ExtraWhitespace /\s\+$/
+    autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+    autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+    autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+    autocmd BufWinLeave * call clearmatches()
+endif
