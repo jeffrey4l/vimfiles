@@ -41,7 +41,7 @@ set laststatus=2
 
 " Encoding
 " support show chinese
-set fileencodings=utf-8,ucs-bom,gbk,gb2312,gb18030,cp936 
+set fileencodings=utf-8,ucs-bom,gbk,gb2312,gb18030,cp936
 set encoding=utf-8
 
 " Persistent undo
@@ -95,3 +95,15 @@ if ! &diff
     autocmd InsertLeave * match ExtraWhitespace /\s\+$/
     autocmd BufWinLeave * call clearmatches()
 endif
+
+"""""""""""""""
+" VIM Mapping "
+"""""""""""""""
+map - <C-W>-
+map + <C-W>+
+map <C-.> <C-w>>
+map <C-,> <C-w><
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-h> <C-w>h
+map <C-l> <C-w>l
