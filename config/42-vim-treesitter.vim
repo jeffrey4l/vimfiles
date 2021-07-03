@@ -1,8 +1,9 @@
-if has('nvim')
-	lua <<EOF
+if !has('nvim') | finish | endif
+
+lua <<EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  ignore_install = { "javascript" }, -- List of parsers to ignore installing
+  ignore_install = { }, -- List of parsers to ignore installing
   highlight = {
     enable = true,              -- false will disable the whole extension
     disable = { "c", "rust" },  -- list of language that will be disabled
@@ -21,10 +22,10 @@ require'nvim-treesitter.configs'.setup {
     },
   },
 	indent = {
-    enable = true
+    enable = false
   },
   incremental_selection = {
-    enable = true,
+    enable = false,
     keymaps = {
       init_selection = "gnn",
       node_incremental = "grn",
@@ -37,4 +38,3 @@ EOF
 
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
-endif

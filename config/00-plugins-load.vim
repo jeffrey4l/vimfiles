@@ -15,9 +15,9 @@ Plug 'tpope/vim-repeat'
 Plug 'Valloric/MatchTagAlways'
 Plug 'frazrepo/vim-rainbow'
 Plug 'easymotion/vim-easymotion'
-Plug 'will133/vim-dirdiff'
 if has('nvim')
-  Plug 'yamatsum/nvim-cursorline'
+"  Plug 'yamatsum/nvim-cursorline'
+  Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 endif
 
 " search plugin
@@ -59,8 +59,6 @@ else
 endif
 
 
-"Plug 'fatih/vim-go', { 'tag': '*', 'do': ':GoInstallBinaries' }
-"Plug 'fatih/vim-go'
 Plug 'tpope/vim-speeddating'
 Plug 'pearofducks/ansible-vim'
 Plug 'mustache/vim-mustache-handlebars'
