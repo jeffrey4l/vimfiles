@@ -1,24 +1,31 @@
 {
-    "yank.highlight.enable": false,
-    "yaml.completion": true,
-    "yaml.format.enable": true,
-    "yaml.schemas": {
-        "https://json.schemastore.org/ansible-playbook": "config.yml"
-    },
-    "languageserver": {
-        "ccls" : {
-            "command": "ccls",
-            "filetypes": [
-                "c",
-                "cpp",
-                "objc",
-                "objcpp"
-            ],
-            "initializationOptions": {
-                "cache": {
-                    "directory": "/tmp/ccls"
-                }
-            }
+  "diagnostic.displayByAle": true,
+  "yaml.completion": true,
+  "yaml.format.enable": true,
+  "yaml.schemas": {
+    "https://json.schemastore.org/ansible-playbook": "config.yml"
+  },
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes1": [
+        "c",
+        "cpp",
+        "objc",
+        "objcpp"
+      ],
+      "rootPatterns": [
+        ".ccls",
+        "compile_commands.json",
+        ".vim/",
+        ".git/",
+        ".hg/"
+      ],
+      "initializationOptions": {
+        "cache": {
+          "directory": "/tmp/ccls"
         }
+      }
     }
+  }
 }

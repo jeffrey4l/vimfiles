@@ -149,44 +149,6 @@ let g:tagbar_type_go = {
 let g:go_fmt_fail_silently = 1
 let g:go_fmt_command = "goimports"
 
-"""""""
-" ale "
-"""""""
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 0
-let g:ale_lint_on_enter = 0
-nmap <silent> <leader>aj :ALENext<cr>
-nmap <silent> <leader>ak :ALEPrevious<cr>
-
-let g:ale_linters = {
-\  'go': ['gofmt', 'golangci-lint'],
-\  'python': ['pyflakes', 'pycodestyle', 'flake8'],
-\ }
-
-let g:ale_go_golangci_lint_options = '--fast'
-let g:ale_go_golangci_lint_package = 1
-
-let g:ale_fixers = {
-\  'javascript': ['eslint'],
-\  'python': ['autopep8', 'yapf']
-\}
-
-let g:ale_completion_enabled = 0
-let g:ale_python_pyls_use_global = 1
-let g:ale_go_langserver_executable = $HOME.'/.golang/bin/go-langserver'
-
-let g:ale_python_pyls_config = {
-\   'pyls': {
-\     'plugins': {
-\       'pydocstyle': {
-\         'enabled': v:false
-\       }
-\     }
-\   },
-\ }
-
-let g:ale_yaml_yamllint_options = '-c '.$HOME.'/.config/yamllint/config'
-
 """""""""""
 " Ack.vim "
 """""""""""
@@ -201,25 +163,6 @@ nnoremap <Leader>a :Ack<space>
 """""""""""""""
 let g:rg_highlight='true'
 
-""""""""""""""""""""""""""""
-" NERD_tree
-""""""""""""""""""""""""""""""
-let NERDTreeIgnore= ['\~$','.*\.pyc','.*\.pyo', '^tags$', 'cscope',
-                    \ '__pycache__']
-let NERDTreeMinimalUI=1
-
-nmap <F2> :NERDTreeTabsFind<CR>
-nmap <F3> :NERDTreeTabsToggle<CR>
-if has('gui_running')
-  let g:NERDTreeHijackNetrw=0
-  " vim-nerdtree-tags plugin
-  let g:nerdtree_tabs_open_on_gui_startup=0
-else
-  let g:NERDTreeHijackNetrw=1
-endif
-let g:nerdtree_tabs_focus_on_files = 1
-let g:nerdtree_tabs_open_on_console_startup = 2
-let g:nerdtree_tabs_autofind = 0
 
 """""""""
 " CtrlP "

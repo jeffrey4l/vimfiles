@@ -33,7 +33,12 @@ set formatoptions+=Bm
 set fileencodings=utf-8,ucs-bom,gbk,gb2312,gb18030,cp936
 set encoding=utf-8
 
-colorscheme molokai
+if has('nvim')
+  set termguicolors
+  colorscheme molokai
+else
+  colorscheme molokai
+endif
 
 let mapleader = ","
 let maplocalleader = "\\"
@@ -122,4 +127,12 @@ if ! &diff
     autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
     autocmd InsertLeave * match ExtraWhitespace /\s\+$/
     autocmd BufWinLeave * call clearmatches()
+endif
+
+" Disable syntax for large file
+" autocmd BufReadPre * if getfsize(expand("%")) > 10000000 | syntax off | endif
+
+" Disable readonly for vimdiff
+if &diff
+    set noreadonly
 endif
