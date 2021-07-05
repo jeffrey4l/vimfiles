@@ -1,5 +1,7 @@
 {
   "diagnostic.displayByAle": true,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.messageTarget": "echo",
   "yaml.completion": true,
   "yaml.format.enable": true,
   "yaml.schemas": {

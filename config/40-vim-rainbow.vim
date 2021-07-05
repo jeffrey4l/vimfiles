@@ -1,3 +1,5 @@
+if !has_key(plugs, 'vim-rainbow.vim') | finish | endif
+
 let g:rainbow_active = 0
 
 let g:rainbow_load_separately = [

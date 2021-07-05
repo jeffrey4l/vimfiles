@@ -1,6 +1,8 @@
 call plug#begin('~/.vim/plugged')
 
-" colorschema
+"""""""""""""""
+" colorschema "
+"""""""""""""""
 if has('nvim')
   Plug 'tanvirtin/monokai.nvim'
   Plug 'folke/tokyonight.nvim'
@@ -13,11 +15,12 @@ Plug 'mattn/emmet-vim'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'tpope/vim-repeat'
 Plug 'Valloric/MatchTagAlways'
-Plug 'frazrepo/vim-rainbow'
 Plug 'easymotion/vim-easymotion'
 if has('nvim')
-"  Plug 'yamatsum/nvim-cursorline'
+  Plug 'yamatsum/nvim-cursorline'
   Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+  Plug 'dstein64/nvim-scrollview'
+  " Plug 'romgrk/barbar.nvim'
 endif
 
 " search plugin
@@ -34,9 +37,12 @@ Plug 'tpope/vim-unimpaired'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'fisadev/vim-isort'
 
-" syntax
+""""""""""
+" syntax "
+""""""""""
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'sukima/vim-tiddlywiki'
+Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 " Plug 'rafael84/vim-wsd'
 if has('nvim')
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -53,7 +59,7 @@ endif
 """""""""
 if has('nvim')
 	Plug 'ryanoasis/vim-devicons'
-	" Plug 'kyazdani42/nvim-web-devicons'
+	Plug 'kyazdani42/nvim-web-devicons'
 else
 	Plug 'ryanoasis/vim-devicons'
 endif
@@ -64,15 +70,19 @@ Plug 'pearofducks/ansible-vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'posva/vim-vue'
 
-if has('nvim')
-	Plug 'kyazdani42/nvim-web-devicons'
+""""""""
+" tree "
+""""""""
+if has('nvim1')
   Plug 'kyazdani42/nvim-tree.lua'
 else
 	Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeTabsToggle' }
 	Plug 'jistr/vim-nerdtree-tabs'
 endif
+"""""""""""
+" Outline "
+"""""""""""
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-" Plug 'francoiscabrol/ranger.vim'
 " neovim only ?
 Plug 'rbgrouleff/bclose.vim'
 
@@ -80,17 +90,13 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
-" auto complete
-"Plug 'Valloric/YouCompleteMe', { 'do': './install.py --gocode-completer' }
-"Plug 'zxqfl/tabnine-vim'
-
 Plug 'vim-scripts/The-NERD-Commenter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf.vim'
 
 " syntax check
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 Plug 'rhysd/vim-grammarous'
 
 " Plug 'ervandew/supertab'
@@ -110,7 +116,9 @@ Plug 'vim-scripts/toggle_mouse'
 
 " lanuage server
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build' }
+Plug 'fannheyward/coc-pyright', { 'do': 'yarn install --frozen-lockfile && yarn build' }
+Plug 'josa42/coc-go',
+     \ { 'tag': '*', 'do': 'yarn install --frozen-lockfile && yarn build' }
 
 " fcitx
 Plug 'rlue/vim-barbaric'

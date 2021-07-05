@@ -3,13 +3,17 @@ if !has_key(plugs, 'nvim-tree.lua')
 endif
 
 let g:nvim_tree_ignore = [
-    \ '.git',
-    \ 'node_modules',
     \ '.cache',
-    \ '.envs' ]
+    \ '.envs',
+    \ '.git',
+    \ '__pycache__',
+    \ 'node_modules',
+    \ ]
 
 nnoremap <F2> :NvimTreeToggle<CR>
 nnoremap <F3> :NvimTreeFindFile<CR>
+
+let g:nvim_tree_auto_open = 1
 
 let g:nvim_tree_icon_padding = ' '
 let g:nvim_tree_gitignore = 1
@@ -32,7 +36,7 @@ lua <<EOF
       { key = {"<2-RightMouse>", "<C-]>", "C"},    cb = tree_cb("cd") },
       { key = "v",                        cb = tree_cb("vsplit") },
       { key = "s",                        cb = tree_cb("split") },
-      { key = "<C-t>",                        cb = tree_cb("tabnew") },
+      { key = "t",                        cb = tree_cb("tabnew") },
       { key = "<",                            cb = tree_cb("prev_sibling") },
       { key = ">",                            cb = tree_cb("next_sibling") },
       { key = "P",                            cb = tree_cb("parent_node") },

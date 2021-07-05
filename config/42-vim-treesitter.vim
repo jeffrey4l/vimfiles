@@ -1,4 +1,4 @@
-if !has('nvim') | finish | endif
+if !has_key(plugs, 'vim-treesitter') | finish | endif
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
@@ -9,9 +9,9 @@ require'nvim-treesitter.configs'.setup {
     disable = { "c", "rust" },  -- list of language that will be disabled
   },
   refactor = {
-    highlight_current_scope = { enable = true },
+    highlight_current_scope = { enable = false },
 		navigation = {
-      enable = true,
+      enable = false,
       keymaps = {
         goto_definition = "gnd",
         list_definitions = "gnD",
