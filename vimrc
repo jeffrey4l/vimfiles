@@ -4,8 +4,15 @@
 "
 "   curl -L https://raw.githubusercontent.com/jeffrey4l/vimfiles/litter/vimrc -o ~/.config/nvim/init.vim
 
-" Basic
+"""""""""
+" Basic "
+"""""""""
+set nobackup
+set nowritebackup
+set noswapfile
 set nocompatible
+" disable :intro page
+set shm+=I
 
 " Indentation & Tabs
 set autoindent
@@ -16,6 +23,7 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 set smarttab
+set showmatch
 
 autocmd BufRead,BufNewFile *.html setl shiftwidth=2 softtabstop=2 expandtab
 autocmd BufRead,BufNewFile *.yml setl shiftwidth=2 softtabstop=2 expandtab
@@ -23,17 +31,30 @@ autocmd BufRead,BufNewFile *.yaml setl shiftwidth=2 softtabstop=2 expandtab
 
 " Display & format
 set number
+set ruler
 set showmatch
 syntax enable
 colorscheme desert
 filetype plugin on
 filetype indent on
 
+if has("gui_running")
+  if ($OS == 'Windows_NT')
+    " Set a nicer font.
+    set guifont=Consolas:h11:cDEFAULT
+  endif
+  " Hide the toolbar.
+  set guioptions-=T
+endif
+
 " Search
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+
+" clipboard
+set clipboard=unnamed
 
 " Browse & Scroll
 set scrolloff=5
@@ -72,6 +93,19 @@ set t_vb=
 let mapleader = ","
 set paste
 
+
+if ($OS == 'windows_NT')
+  " Fix backspace on windows, more info check
+  " https://stackoverflow.com/a/5428340/893981
+  set backspace=2
+  set backspace=indent,eol,start
+
+  " Disable all button sounds and splash screen
+  au GuiEnter * set t_vb=
+  " Map Ctrl+Shift+V to paste
+  map <C-S-V> "+p
+endif
+
 """"""""""""""
 " sudo write "
 """"""""""""""
@@ -107,3 +141,10 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-h> <C-w>h
 map <C-l> <C-w>l
+
+imap <C-v> <C-r>+
+
+" Load custome file
+if filereadable(expand("~/.vimrc_custom"))
+  exe "source" expand("~/.vimrc_custom")
+endif
