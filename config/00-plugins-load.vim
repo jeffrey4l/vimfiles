@@ -31,11 +31,15 @@ endif
 Plug 'mileszs/ack.vim'
 Plug 'jremmen/vim-ripgrep'
 
-" quickfix window
+"""""""""""""""""""
+" quickfix window "
+"""""""""""""""""""
 Plug 'tpope/vim-unimpaired'
 
-" python
-Plug 'jmcantrell/vim-virtualenv'
+""""""""""
+" python "
+""""""""""
+" Plug 'jmcantrell/vim-virtualenv'
 Plug 'fisadev/vim-isort'
 
 """"""""""
@@ -101,35 +105,27 @@ endif
 
 " syntax check
 " Plug 'w0rp/ale'
-Plug 'rhysd/vim-grammarous'
+" Plug 'rhysd/vim-grammarous'
 
-" Plug 'ervandew/supertab'
+"""""""""""
+" Snippet "
+"""""""""""
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-"Plug 'fholgado/minibufexpl.vim'
-
-" git wrapper
+"""""""
+" git "
+"""""""
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rhubarb'
 
 Plug 'vim-scripts/toggle_mouse'
 
-" lanuage server
+""""""""""""""""""
+" lanuage server "
+""""""""""""""""""
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'fannheyward/coc-pyright', {
-  \ 'do': 'yarn install --frozen-lockfile && yarn build'
-  \ }
-Plug 'josa42/coc-go', {
-  \ 'tag': '*',
-  \ 'do': 'yarn install --frozen-lockfile && yarn build'
-  \ }
-
-" fcitx
-" Plug 'rlue/vim-barbaric'
-
-" fast fold
-" Plug 'Konfekt/FastFold'
-
+Plug 'fannheyward/coc-pyright', { 'do': 'yarn install --frozen-lockfile && yarn build' }
+Plug 'josa42/coc-go', { 'tag': '*', 'do': 'yarn install --frozen-lockfile && yarn build' }
 call plug#end()
