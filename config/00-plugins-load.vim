@@ -1,5 +1,7 @@
-" Valid Option: [ nerdtree, nvim-tree ]
+" Valid Option: [ nerdtree, nvim-tree, no ]
 let g:tree_plugin = 'nerdtree'
+" Valid OPtion: [ fzf, ctrlp, no ]
+let g:fuzz_plugin = 'fzf'
 
 call plug#begin('~/.vim/plugged')
 
@@ -89,9 +91,13 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
 Plug 'vim-scripts/The-NERD-Commenter'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
-Plug 'junegunn/fzf.vim'
+
+if fuzz_plugin == 'ctrlp'
+  Plug 'ctrlpvim/ctrlp.vim'
+elseif fuzz_plugin == 'fzf'
+  Plug 'junegunn/fzf.vim'
+endif
 
 " syntax check
 " Plug 'w0rp/ale'
@@ -109,8 +115,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rhubarb'
 
 Plug 'vim-scripts/toggle_mouse'
-"Plug 'rhysd/clever-f.vim'
-"
 
 " lanuage server
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -123,9 +127,9 @@ Plug 'josa42/coc-go', {
   \ }
 
 " fcitx
-Plug 'rlue/vim-barbaric'
+" Plug 'rlue/vim-barbaric'
 
 " fast fold
-Plug 'Konfekt/FastFold'
+" Plug 'Konfekt/FastFold'
 
 call plug#end()

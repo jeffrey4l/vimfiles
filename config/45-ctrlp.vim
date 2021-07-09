@@ -1,14 +1,17 @@
+if !has_key(plugs, 'ctrlp.vim') | finish | endif
 """""""""
 " CtrlP "
 """""""""
 let g:ctrlp_map = '<leader>g'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_custom_ignore = {
-    \ 'dir': '\.git$\|\.svn$|\.tox$',
+    \ 'dir': '\.git$\|\.svn$\|\.tox$\|\.mypy_cache$\|\.envs$',
     \ 'file': '\.pyc$\|\.pyo$'
     \}
 let g:ctrlp_switch_buffer = 'Et'
 let g:ctrlp_show_hidden = 1
+
+map <leader>f :CtrlP<CR>
 map <leader>b :CtrlPBuffer<CR>
 map <leader>t :CtrlPBufTag<CR>
 
