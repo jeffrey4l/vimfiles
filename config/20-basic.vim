@@ -35,7 +35,7 @@ set encoding=utf-8
 
 if has('nvim')
   set termguicolors
-  colorscheme molokai
+  colorscheme doom-one
 else
   colorscheme molokai
 endif
