@@ -1,3 +1,6 @@
+" Valid Option: [ nerdtree, nvim-tree ]
+let g:tree_plugin = 'nerdtree'
+
 call plug#begin('~/.vim/plugged')
 
 """""""""""""""
@@ -17,7 +20,6 @@ Plug 'tpope/vim-repeat'
 Plug 'Valloric/MatchTagAlways'
 Plug 'easymotion/vim-easymotion'
 if has('nvim')
-  Plug 'yamatsum/nvim-cursorline'
   Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
   Plug 'dstein64/nvim-scrollview'
   " Plug 'romgrk/barbar.nvim'
@@ -26,9 +28,6 @@ endif
 " search plugin
 Plug 'mileszs/ack.vim'
 Plug 'jremmen/vim-ripgrep'
-
-" cscope maps
-Plug 'chazy/cscope_maps'
 
 " quickfix window
 Plug 'tpope/vim-unimpaired'
@@ -58,7 +57,6 @@ endif
 " icons "
 """""""""
 if has('nvim')
-	Plug 'ryanoasis/vim-devicons'
 	Plug 'kyazdani42/nvim-web-devicons'
 else
 	Plug 'ryanoasis/vim-devicons'
@@ -73,7 +71,7 @@ Plug 'posva/vim-vue'
 """"""""
 " tree "
 """"""""
-if has('nvim1')
+if has('nvim') && tree_plugin == "nvim-tree"
   Plug 'kyazdani42/nvim-tree.lua'
 else
 	Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeTabsToggle' }
@@ -116,9 +114,13 @@ Plug 'vim-scripts/toggle_mouse'
 
 " lanuage server
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'fannheyward/coc-pyright', { 'do': 'yarn install --frozen-lockfile && yarn build' }
-Plug 'josa42/coc-go',
-     \ { 'tag': '*', 'do': 'yarn install --frozen-lockfile && yarn build' }
+Plug 'fannheyward/coc-pyright', {
+  \ 'do': 'yarn install --frozen-lockfile && yarn build'
+  \ }
+Plug 'josa42/coc-go', {
+  \ 'tag': '*',
+  \ 'do': 'yarn install --frozen-lockfile && yarn build'
+  \ }
 
 " fcitx
 Plug 'rlue/vim-barbaric'
