@@ -139,3 +139,11 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+""""""""""""
+" coc-yank "
+""""""""""""
+if has_key(plugs, 'coc-yank')
+  nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+  hi HighlightedyankRegion cterm=bold gui=bold ctermbg=0 guibg=#13354A
+endif

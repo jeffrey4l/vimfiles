@@ -129,9 +129,6 @@ if ! &diff
     autocmd BufWinLeave * call clearmatches()
 endif
 
-" Disable syntax for large file
-" autocmd BufReadPre * if getfsize(expand("%")) > 10000000 | syntax off | endif
-
 " Disable readonly for vimdiff
 if &diff
     set noreadonly

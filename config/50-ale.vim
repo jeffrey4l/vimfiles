@@ -1,3 +1,4 @@
+if !has_key(plugs, 'ale') | finish | endif
 """""""
 " ale "
 """""""
