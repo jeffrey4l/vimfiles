@@ -5,15 +5,6 @@ let g:pandoc#filetypes#pandoc_markdown=0
 "YankRing
 let g:yankring_history_dir = '$HOME/.vim/'
 
-"""""""""""
-" Ack.vim "
-"""""""""""
-if executable('rg')
-  let g:ackprg = 'rg --vimgrep'
-elseif executable('ag')
-  let g:ackprg = 'ag -a --vimgrep'
-endif
-nnoremap <Leader>a :Ack<space>
 """""""""""""""
 " vim-ripgrep "
 """""""""""""""

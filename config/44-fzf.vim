@@ -11,7 +11,7 @@ map <leader>m :Maps<CR>
 map <leader>l :Lines<CR>
 
 let g:fzf_layout = { 'window': 'enew' }
-let g:fzf_preview_window = ['up:40%', 'ctrl-/']
+let g:fzf_preview_window = ['right:40%', 'ctrl-/']
 
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
@@ -23,7 +23,7 @@ imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
-let g:fzf_tags_command = 'ctags -R --exclude={.tox,.git,.mypy_cache}'
+let g:fzf_tags_command = 'ctags -R --exclude={.tox,.git,.mypy_cache,plugged,.ccls-cache}'
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
 

@@ -92,7 +92,7 @@ let g:tagbar_type_rst = {
     \ }
 
 " Depends on https://github.com/jszakmeister/markdown2ctags
-" can install by 
+" can install by
 "
 "   yaourt -S markdown2ctags
 let g:tagbar_type_markdown = {
@@ -109,6 +109,8 @@ let g:tagbar_type_markdown = {
     \ },
     \ 'sort': 0,
 \ }
+
+let g:tagbar_type_pandoc = tagbar_type_markdown
 
 let g:tagbar_type_go = {
 	\ 'ctagstype' : 'go',

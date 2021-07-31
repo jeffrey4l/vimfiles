@@ -33,12 +33,7 @@ set formatoptions+=Bm
 set fileencodings=utf-8,ucs-bom,gbk,gb2312,gb18030,cp936
 set encoding=utf-8
 
-if has('nvim')
-  set termguicolors
-  colorscheme doom-one
-else
-  colorscheme molokai
-endif
+execute 'colorscheme '.g:colorschema
 
 let mapleader = ","
 let maplocalleader = "\\"
@@ -133,3 +128,5 @@ endif
 if &diff
     set noreadonly
 endif
+" set wrap for all file in diff mode
+autocmd VimEnter * if &diff | execute 'windo set wrap' | endif

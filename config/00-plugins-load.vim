@@ -5,7 +5,10 @@
 let g:tree_plugin = 'nerdtree'
 " Valid Options: [ fzf, ctrlp, no ]
 let g:fuzz_plugin = 'fzf'
-
+" Valid Options: [ monokai, doom-one ]
+if !exists("g:colorschema")
+  let g:colorschema = 'monokai'
+endif
 
 call plug#begin('~/.vim/plugged')
 """""""""""""""
@@ -14,6 +17,9 @@ call plug#begin('~/.vim/plugged')
 if has('nvim')
   Plug 'tanvirtin/monokai.nvim'
   Plug 'folke/tokyonight.nvim', {'branch': 'main'}
+  Plug 'romgrk/doom-one.vim'
+else
+  Plug 'sickill/vim-monokai'
 endif
 Plug 'tomasr/molokai'
 
@@ -26,6 +32,7 @@ Plug 'tpope/vim-unimpaired'
 " syntax "
 """"""""""
 Plug 'Glench/Vim-Jinja2-Syntax'
+Plug 'cespare/vim-toml'
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 " Plug 'rafael84/vim-wsd'
 if has('nvim')
@@ -68,8 +75,9 @@ Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
 """"""""""""
 " markdown "
 """"""""""""
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
+" Plug 'vim-pandoc/vim-pandoc'
+" Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'tpope/vim-markdown'
 
 """"""""""
 " Editor "
@@ -85,10 +93,11 @@ if has('nvim')
   Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
   " FiXME: not work with fzf
   " Plug 'dstein64/nvim-scrollview'
-  Plug 'romgrk/barbar.nvim'
-  Plug 'romgrk/doom-one.vim'
+  " Plug 'romgrk/barbar.nvim'
   " Plug 'akinsho/nvim-bufferline.lua'
 endif
+
+Plug 'reedes/vim-pencil'
 
 """""""""""""""
 " Status Line "
@@ -114,6 +123,7 @@ Plug 'honza/vim-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-rhubarb'
+Plug 'hotwatermorning/auto-git-diff'
 
 Plug 'vim-scripts/toggle_mouse'
 
@@ -130,7 +140,12 @@ Plug 'josa42/coc-go', {
       \ 'tag': '*',
       \ 'for': 'go',
       \ 'do': 'yarn install --frozen-lockfile && yarn build'}
-Plug 'neoclide/coc-git', {'tag': '*', 'do': 'yarn install --frozen-lockfile && yarn build'}
+Plug 'fannheyward/coc-sql', {'do': 'yarn install --frozen-lockfile && yarn build'}
+Plug 'kkiyama117/coc-toml', {'tag': '*', 'do': 'yarn install --frozen-lockfile && yarn build'}
+" disable coc-git plugin in diff mode
+if !&diff
+  Plug 'neoclide/coc-git', {'tag': '*', 'do': 'yarn install --frozen-lockfile && yarn build'}
+endif
 Plug 'neoclide/coc-json', {'tag': '*', 'do': 'yarn install --frozen-lockfile && yarn build'}
 Plug 'neoclide/coc-snippets', {'tag': '*', 'do': 'yarn install --frozen-lockfile && yarn build'}
 Plug 'neoclide/coc-solargraph', {'tag': '*', 'do': 'yarn install --frozen-lockfile && yarn build'}
@@ -139,5 +154,13 @@ Plug 'neoclide/coc-yank', {'tag': '*', 'do': 'yarn install --frozen-lockfile && 
 
 " Plug 'w0rp/ale'
 " Plug 'rhysd/vim-grammarous'
+Plug 'mileszs/ack.vim'
+
+"""""""""""""""""
+" Time Tracking "
+"""""""""""""""""
+" Plug 'wakatime/vim-wakatime'
 
 call plug#end()
+
+let g:auto_git_diff_show_window_at_right=1
