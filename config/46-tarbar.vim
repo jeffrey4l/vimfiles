@@ -31,6 +31,23 @@ let g:tagbar_type_puppet = {
       \ ]
     \ }
 
+let g:tagbar_type_diff = {
+    \ 'ctagstype': 'Diff',
+    \ 'kinds': [
+        \ 'd:deleted:1',
+        \ 'h:hunks:1',
+        \ 'm:modifiedFile:0',
+        \ 'n:newFile:0',
+      \ ],
+    \ 'sro' : ':',
+    \ 'kind2scope': {
+        \ 'd': 'deleted',
+        \ 'm': 'modifiedFile',
+        \ 'n': 'newFile',
+    \ },
+    \ 'sort' : 1
+    \ }
+
 let g:tagbar_type_typescript = {
   \ 'ctagstype': 'typescript',
   \ 'kinds': [
