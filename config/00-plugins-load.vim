@@ -6,6 +6,8 @@ let g:tree_plugin = 'nerdtree'
 "let g:tree_plugin = 'nvim-tree'
 " Valid Options: [ fzf, ctrlp, no ]
 let g:fuzz_plugin = 'fzf'
+" Valid Options: [ nvim-comment, nerdcommenter ]
+let g:commenter = 'nerdcommenter'
 " Valid Options: [ monokai, doom-one ]
 if !exists("g:colorschema")
   "let g:colorschema = 'tokyonight'
@@ -108,7 +110,13 @@ Plug 'easymotion/vim-easymotion'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'vim-scripts/The-NERD-Commenter'
+
+if has('nvim') && commenter == 'nvim-comment'
+  Plug 'terrortylor/nvim-comment'
+elseif commenter == 'nerdcommenter'
+  Plug 'preservim/nerdcommenter'
+endif
+
 Plug 'vim-scripts/YankRing.vim'
 if has('nvim')
   Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
