@@ -2,8 +2,8 @@
   "diagnostic.displayByAle": true,
   "diagnostic.checkCurrentLine": true,
   "diagnostic.messageTarget": "echo",
-  "yaml.completion": true,
-  "yaml.format.enable": true,
+  "diagnostic.showUnused": false,
+  "diagnostic.hintSign": "",
   "python.linting.flake8Enabled": true,
   "python.linting.flake8Path": "/usr/bin/flake8",
   "yaml.schemas": {

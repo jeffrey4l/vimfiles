@@ -1,10 +1,10 @@
-update:
+install:
 	vim +PlugInstall +qall
 
-update-force:
-	vim +PlugInstall! +qall
+update:
+	vim +PlugUpdate +qall
 
-install:
+update-plug:
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 

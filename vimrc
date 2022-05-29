@@ -1,6 +1,9 @@
 " support python3 only
 if has('python3')
 endif
-for file in split(glob('~/.vim/config/*.vim'), '\n')
+
+source $HOME/.vim/function.vim
+
+for file in split(glob('$HOME/.vim/config/*.vim'), '\n')
     exe 'source' file
 endfor

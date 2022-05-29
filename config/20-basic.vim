@@ -25,7 +25,6 @@ autocmd BufRead,BufNewFile *.py setl shiftwidth=4 softtabstop=4
 
 set foldmethod=marker
 set nofoldenable
-set t_Co=256
 
 set formatoptions+=Bm
 
@@ -33,7 +32,12 @@ set formatoptions+=Bm
 set fileencodings=utf-8,ucs-bom,gbk,gb2312,gb18030,cp936
 set encoding=utf-8
 
-execute 'colorscheme '.g:colorschema
+set t_Co=256
+if &diff
+  colorscheme molokai
+else
+  execute 'colorscheme '.g:colorschema
+endif
 
 let mapleader = ","
 let maplocalleader = "\\"

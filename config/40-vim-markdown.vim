@@ -6,6 +6,7 @@ let g:markdown_fenced_languages = [
       \ 'sql',
       \ 'xml',
       \ 'yaml',
+      \ 'dosini',
       \ ]
 let g:markdown_minlines = 100
 let g:vim_markdown_conceal = 0

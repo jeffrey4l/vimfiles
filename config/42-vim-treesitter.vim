@@ -1,4 +1,8 @@
-if !has_key(plugs, 'vim-treesitter') | finish | endif
+if !has_key(plugs, 'vim-treesitter')
+  finish
+endif
+
+
 
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
@@ -11,7 +15,7 @@ require'nvim-treesitter.configs'.setup {
   refactor = {
     highlight_current_scope = { enable = false },
 		navigation = {
-      enable = false,
+      enable = true,
       keymaps = {
         goto_definition = "gnd",
         list_definitions = "gnD",
