@@ -214,6 +214,7 @@ function JsonFile()
     \ }
 endfunction
 
+" only handle json file less than 1K
 autocmd BufReadPre * if getfsize(expand('%')) < 1024 | call JsonFile() | endif
 
 let g:tagbar_type_jsonnet = {
