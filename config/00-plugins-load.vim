@@ -110,6 +110,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'godlygeek/tabular'
 
 if has('nvim') && commenter == 'nvim-comment'
   Plug 'terrortylor/nvim-comment'
