@@ -10,7 +10,7 @@
 # Installation
 
     git clone https://github.com/jeffrey4l/vimfiles.git ~/.vim
-    ln -s ~/.vim/vimrc ~/.vimrc
+    ln -s ~/.vim/init.vim ~/.vimrc
     cd ~/.vim
     make
 
