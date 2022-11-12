@@ -56,10 +56,6 @@ map <C-k> <C-w>k
 map <C-h> <C-w>h
 map <C-l> <C-w>l
 
-if has('nvim')
- nmap <BS> <C-W>h
-endif
-
 map tc :tabclose<CR>
 map tn :tabnew<CR>
 map tt :tab split<CR>
