@@ -43,6 +43,7 @@ let mapleader = ","
 let maplocalleader = "\\"
 
 set mouse=a
+set mousemodel=extend
 
 """""""""""""""""""""""
 " vim mapping setting "

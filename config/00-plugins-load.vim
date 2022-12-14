@@ -48,6 +48,7 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'cespare/vim-toml'
 Plug 'fatih/vim-go'
 Plug 'vim-python/python-syntax'
+Plug 'momota/cisco.vim'
 " Plug 'elzr/vim-json'
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 Plug 'sukima/vim-tiddlywiki'
@@ -162,7 +163,8 @@ Plug 'honza/vim-snippets'
 " git "
 """""""
 Plug 'tpope/vim-fugitive', Cond(!&diff, {'tag': '*'})
-Plug 'airblade/vim-gitgutter', Cond(!&diff)
+" vim-gitgutter 和 coc-git 功能是类似的, 像是都对大文件不友好
+" Plug 'airblade/vim-gitgutter', Cond(!&diff)
 
 Plug 'tpope/vim-rhubarb'
 Plug 'hotwatermorning/auto-git-diff'
@@ -194,7 +196,7 @@ if !exists('g:vscode')
   Plug 'kkiyama117/coc-toml', {'tag': '*', 'do': 'yarn install --frozen-lockfile && yarn build'}
   Plug 'josa42/coc-sh', {'tag': '*', 'do': 'yarn install --frozen-lockfile && yarn build'}
   " disable coc-git plugin in diff mode
-  Plug 'neoclide/coc-git', Cond(!&diff, {'tag': '*', 'do': 'yarn install --frozen-lockfile && yarn build'})
+  " Plug 'neoclide/coc-git', Cond(!&diff, {'tag': '*', 'do': 'yarn install --frozen-lockfile && yarn build'})
   " Plug 'neoclide/coc-json', {'tag': '*', 'do': 'yarn install --frozen-lockfile && yarn build'}
   Plug 'neoclide/coc-snippets', {'tag': '*', 'do': 'yarn install --frozen-lockfile && yarn build'}
   " Plug 'neoclide/coc-solargraph', {'tag': '*', 'do': 'yarn install --frozen-lockfile && yarn build'}
