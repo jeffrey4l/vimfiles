@@ -70,5 +70,6 @@
       "asmdecl": false,
       "assign": false
     }
-  }
+  },
+  "snippets.ultisnips.pythonPrompt": false
 }

@@ -6,21 +6,6 @@ if !has_key(plugs, 'tagbar') | finish | endif
 map <F4> :TagbarToggle<CR>
 let g:tagbar_width=30
 
-let g:tagbar_type_ansible = {
-	\ 'ctagstype' : 'ansible',
-	\ 'kinds' : [
-		\ 't:tasks'
-	\ ],
-	\ 'sort' : 0
-\ }
-let g:tagbar_type_yaml = {
-	\ 'ctagstype' : 'ansible',
-	\ 'kinds' : [
-		\ 't:tasks'
-	\ ],
-	\ 'sort' : 0
-\ }
-
 let g:tagbar_type_puppet = {
     \ 'ctagstype': 'puppet',
     \ 'kinds': [
@@ -50,19 +35,35 @@ let g:tagbar_type_diff = {
 
 let g:tagbar_type_git = g:tagbar_type_diff
 
-let g:tagbar_type_typescript = {
-  \ 'ctagstype': 'typescript',
-  \ 'kinds': [
-    \ 'c:classes',
-    \ 'n:modules',
-    \ 'f:functions',
-    \ 'v:variables',
-    \ 'v:varlambdas',
-    \ 'm:members',
-    \ 'i:interfaces',
-    \ 'e:enums',
-  \ ]
+" more info check https://github.com/universal-ctags/ctags/issues/2127
+let g:tagbar_type_typescriptreact = {
+    \ 'ctagstype': 'typescript',
+    \ 'kinds': [
+        \ 'c:classes',
+        \ 'f:functions',
+        \ 'i:interfaces',
+        \ 'n:namespace',
+        \ 'a:aliases',
+        \ 'v:variables',
+        \ 'C:constants'
+    \ ],
+    \ 'sro': '.',
+    \ 'kind2scope': {
+        \ 'c': 'class',
+        \ 'f': 'function',
+        \ 'i': 'interface',
+        \ 'n': 'namespace',
+        \ 'a': 'alias'
+    \ },
+    \ 'scope2kind': {
+        \ 'class': 'c',
+        \ 'function': 'f',
+        \ 'interface': 'i',
+        \ 'namespace': 'n',
+        \ 'alias': 'a'
+    \ }
 \ }
+
 
 let g:tagbar_type_terraform = {
     \ 'ctagstype' : 'terraform',

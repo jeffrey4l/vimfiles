@@ -66,6 +66,10 @@ Plug 'pangloss/vim-javascript'
 Plug 'nathanalderson/yang.vim'
 Plug 'lervag/vimtex'
 Plug 'pgporada/vim-mtail'
+Plug 'wgwoods/vim-systemd-syntax'
+Plug 'Joorem/vim-haproxy'
+" JSX and TSX syntax pretty highlighting
+Plug 'maxmellon/vim-jsx-pretty'
 
 """""""""
 " icons "
@@ -204,6 +208,7 @@ if !exists('g:vscode')
   Plug 'neoclide/coc-yank', {'tag': '*', 'do': 'yarn install --frozen-lockfile && yarn build'}
   " Plug 'clangd/coc-clangd', {'do': 'yarn install --frozen-lockfile && yarn build'}
   " Plug 'neoclide/coc-css', {'tag': '*', 'do': 'yarn install --frozen-lockfile && yarn build'}
+  Plug 'neoclide/coc-java', {'do': 'yarn install --frozen-lockfile && yarn build'}
   Plug 'neoclide/coc-tsserver', {'tag': '*', 'do': 'yarn install --frozen-lockfile && yarn build'}
   Plug 'yaegassy/coc-esbonio', {'do': 'yarn install --frozen-lockfile'}
   Plug 'neoclide/coc-vimtex', {'do': 'yarn install --frozen-lockfile'}

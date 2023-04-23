@@ -9,16 +9,23 @@
 
 # Installation
 
-    git clone https://github.com/jeffrey4l/vimfiles.git ~/.vim
-    ln -s ~/.vim/init.vim ~/.vimrc
-    cd ~/.vim
-    make
+```bash
+git clone https://github.com/jeffrey4l/vimfiles.git ~/.vim
+ln -s ~/.vim/init.vim ~/.vimrc
+cd ~/.vim
+make
 
-    # install YouCompleteMe
-    cd ~/.vim/plugged/YouCompleteMe/
-    python install.py
+# install YouCompleteMe
+cd ~/.vim/plugged/YouCompleteMe/
+python install.py
+```
 
 # Install for Archlinux
 
-    pacman -S ctags the_silver_searcher cscope powerline-fonts
-    yaourt -S markdown2ctags
+```bash
+pacman -S ctags the_silver_searcher cscope powerline-fonts
+yaourt -S markdown2ctags
+
+# for golang
+yaourt -S gotags
+```

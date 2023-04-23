@@ -10,13 +10,6 @@ let g:yankring_history_dir = '$HOME/.vim/'
 """""""""""""""
 let g:rg_highlight='true'
 
-
-""""""""""""""""""""
-" Vim Ansible YAML "
-""""""""""""""""""""
-autocmd BufRead,BufNewFile *.yaml set filetype=yaml.ansible
-
-
 " better key bindings for UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
